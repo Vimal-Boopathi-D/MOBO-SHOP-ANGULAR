@@ -1,0 +1,180 @@
+<app-hero-slider></app-hero-slider>
+
+<div style="height: 3rem;"></div>
+
+<section class="hero-card">
+  <div class="hero-content">
+    <h1>Welcome to Mobo Shop</h1>
+    <p>Your one-stop solution for mobile & tech services</p>
+  </div>
+</section>
+
+<div style="height: 3rem;"></div>
+
+
+<section class="premium-features" appScrollAnimation>
+  <h2 class="pf-title">
+    What Makes <span>Mobo Shop</span> Special?
+  </h2>
+
+  <p class="pf-subtitle">
+    High-quality services backed by expert technicians, transparent pricing, and reliable technology solutions.
+  </p>
+
+<div class="pf-grid">
+
+  <!-- 1: Trust & Reliability -->
+  <div class="pf-box">
+    <div class="pf-icon">
+      <i class="fa-solid fa-award"></i>
+    </div>
+    <h3>Trusted & Reliable Service</h3>
+    <p>
+      We are known for our honesty, transparency, and consistent quality — building long-term
+      relationships with every customer who walks in.
+    </p>
+  </div>
+
+  <!-- 2: Customer-Centric Approach -->
+  <div class="pf-box">
+    <div class="pf-icon">
+      <i class="fa-solid fa-handshake-angle"></i>
+    </div>
+    <h3>Customer-First Experience</h3>
+    <p>
+      Every decision we make focuses on improving your experience — from friendly support
+      to clear communication and fast response times.
+    </p>
+  </div>
+
+  <!-- 3: Quality Assurance -->
+  <div class="pf-box">
+    <div class="pf-icon">
+      <i class="fa-solid fa-shield-heart"></i>
+    </div>
+    <h3>High Quality Standards</h3>
+    <p>
+      Our processes follow strict quality checks to ensure that every service we deliver meets
+      professional standards and your expectations.
+    </p>
+  </div>
+
+  <!-- 4: Fast & Hassle-Free Service -->
+  <div class="pf-box">
+    <div class="pf-icon">
+      <i class="fa-solid fa-bolt"></i>
+    </div>
+    <h3>Fast & Hassle-Free Process</h3>
+    <p>
+      Convenience is at the heart of our service — no delays, no complications, and no stress.
+      Just fast, easy, smooth experiences.
+    </p>
+  </div>
+
+</div>
+</section>
+
+<!-- 🌟 Premium Highlight Section -->
+<section class="highlight-section" appScrollAnimation>
+  <div class="highlight-wrapper">
+
+    <h2 class="highlight-title">
+      A Place Built on <span>Trust, Quality & Care</span>
+    </h2>
+
+    <p class="highlight-description">
+      At Mobo Shop, we believe in delivering more than just service — we create meaningful
+      experiences. Every customer is welcomed with genuine care, honest guidance, and a
+      commitment to doing things the right way. Our purpose is simple: make your everyday
+      journey easier, smoother, and more reliable, with service you can feel confident about.
+    </p>
+
+  </div>
+</section>
+
+
+
+
+<section class="products">
+  <div class="card" *ngFor="let product of products" appScrollAnimation>
+    <div class="card-img">
+      <img [src]="product.img" alt="{{product.name}}">
+    </div>
+    <div class="card-content">
+      <h3>{{product.name}}</h3>
+      <p>{{product.description}}</p>
+    </div>
+  </div>
+</section>
+
+<section class="post-products-section" appScrollAnimation>
+  <div class="pps-wrapper">
+
+    <h2 class="pps-title">Our Vision & Mission</h2>
+
+    <p class="pps-description">
+      Our vision is to create a space where innovation meets simplicity. We aim to bring
+      modern solutions closer to the community while ensuring genuine value in every step.
+      Our mission is to continuously evolve, adapt, and deliver experiences that empower
+      individuals and support the changing needs of a smarter, faster world.
+    </p>
+
+  </div>
+</section>
+
+
+
+<!-- 1️⃣ Second-Hand Mobiles -->
+<app-lottie-section
+  [animationPath]="'assets/animations/MOBILE MARKETING.json'"
+  [title]="'Second-Hand Mobiles'"
+  [content]="
+    'Find high-quality, pre-owned smartphones at unbeatable prices. \
+    Each mobile undergoes a rigorous inspection process to ensure top performance and reliability. \
+    Enjoy a like-new experience with warranty support, accessories, and the latest models from your favorite brands — \
+    all without stretching your budget.'
+  "
+>
+</app-lottie-section>
+
+<!-- 2️⃣ Brand-New Mobiles (reversed) -->
+<app-lottie-section
+  [animationPath]="'assets/animations/phone.json'"
+  [title]="'Latest Brand-New Mobiles'"
+  [content]="
+    'Stay ahead of technology with our latest collection of brand-new smartphones. \
+    Explore the newest launches from top brands with cutting-edge designs, powerful processors, \
+    and advanced camera systems. Whether you’re a gamer, photographer, or multitasker, \
+    we’ve got the perfect phone for you — with exclusive launch offers and easy EMIs.'
+  "
+  [reverse]="true"
+></app-lottie-section>
+
+<!-- 3️⃣ Laptops -->
+<app-lottie-section
+  [animationPath]="'assets/animations/Mobile and Laptop.json'"
+  [title]="'High-Performance Laptops'"
+  [content]="
+    'Boost your productivity with our range of top-rated laptops for work, study, and gaming. \
+    Choose from lightweight ultrabooks, gaming beasts, or professional workstations from brands you trust. \
+    Each system is optimized for speed, durability, and battery life, ensuring smooth performance and reliability \
+    no matter your needs.'
+  "
+>
+</app-lottie-section>
+
+<!-- 4️⃣ CCTV Installation (reversed) -->
+<app-lottie-section
+  [animationPath]="'assets/animations/CCTV Camera.json'"
+  [title]="'Professional CCTV Installation Services'"
+  [content]="
+    'Secure your home, office, or shop with our advanced CCTV installation and maintenance services. \
+    We offer high-resolution cameras, smart monitoring solutions, and complete setup assistance. \
+    Our expert team ensures seamless installation and real-time monitoring integration — \
+    keeping your premises safe and protected 24/7.'
+  "
+  [reverse]="true"
+></app-lottie-section>
+
+<app-location></app-location>
+

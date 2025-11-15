@@ -1,0 +1,22 @@
+<section class="hero-slider">
+  <div class="slide" *ngFor="let slide of slides; let i = index"
+       [class.active]="i === currentSlide">
+    <div class="slide-bg">
+      <img [src]="slide.img" alt="{{slide.title}}">
+      <div class="overlay"></div>
+    </div>
+
+    <div class="slide-content">
+      <div class="glass-box">
+        <h2>{{slide.title}}</h2>
+        <p>{{slide.subtitle}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dots">
+    <span *ngFor="let slide of slides; let i = index"
+          [class.active]="i === currentSlide"
+          (click)="goToSlide(i)"></span>
+  </div>
+</section>

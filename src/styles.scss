@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+/* Ensure no horizontal overflow */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; // prevent horizontal scroll
+}
+
+/* Optional: fix any full-width elements */
+body > :not(script) {
+  max-width: 100vw;
+}

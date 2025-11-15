@@ -1,0 +1,106 @@
+.lottie-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 3vw, 4rem);
+  padding: clamp(2rem, 4vw, 4rem) 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+
+  /* 🔥 FIX: Ensure animation always has visible space */
+  .lottie-container {
+    flex: 1;
+    max-width: clamp(260px, 40vw, 480px);
+    min-height: clamp(220px, 30vw, 350px); /* KEY FIX */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fdfdfd;
+    border-radius: 20px;
+    padding: clamp(0.8rem, 2vw, 1.2rem);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    overflow: hidden; /* prevents SVG overflow */
+  }
+
+  .text-container {
+    flex: 1;
+    padding: 0 1rem;
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+      position: relative;
+
+      &::after {
+        content: '';
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #ff5722, #ff8a65);
+        border-radius: 3px;
+        margin-top: 6px;
+        display: block;
+      }
+    }
+
+    p {
+      font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+      color: #555;
+      line-height: 1.7;
+
+      strong {
+        color: #ff5722;
+      }
+    }
+  }
+
+  /* Reverse desktop layout */
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+
+  /* Tablets */
+  @media (max-width: 992px) {
+    flex-direction: column;
+
+    &.reverse {
+      flex-direction: column;
+    }
+
+    .lottie-container {
+      max-width: 80%;
+      min-height: 260px; /* ensures animation shows */
+    }
+
+    .text-container {
+      text-align: center;
+
+      h2::after {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 576px) {
+    padding: 1.8rem 1rem;
+
+    .lottie-container {
+      max-width: 100%;
+      min-height: 200px; /* important fix */
+      border-radius: 15px;
+    }
+
+    .text-container h2 {
+      font-size: 1.5rem !important;
+    }
+
+    .text-container p {
+      font-size: 0.95rem !important;
+    }
+  }
+}

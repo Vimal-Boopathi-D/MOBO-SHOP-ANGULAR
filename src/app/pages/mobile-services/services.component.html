@@ -1,0 +1,22 @@
+<app-hero-banner
+  image="assets/images/service.jpg"
+  title="Expert Mobile Repair Services"
+  description="Get your smartphone fixed by certified professionals. We handle screen replacements, battery issues, water damage, and more — fast, reliable, and affordable service guaranteed."
+></app-hero-banner>
+
+<section class="services-page">
+  <h2>Our Mobile Repair Services</h2>
+  <p class="subtitle">Professional repair solutions for all your devices</p>
+
+  <div class="services-grid">
+    <app-service-card
+      *ngFor="let service of services; let i = index"
+      [img]="service.img"
+      [name]="service.name"
+      [description]="service.description"
+      appScrollAnimation
+      [animation]="i % 2 === 0 ? 'left' : 'right'"
+      class="scroll-animate"
+    ></app-service-card>
+  </div>
+</section>
