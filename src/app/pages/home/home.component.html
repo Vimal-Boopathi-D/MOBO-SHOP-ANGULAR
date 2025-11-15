@@ -1,15 +1,28 @@
 <app-hero-slider></app-hero-slider>
 
-<div style="height: 3rem;"></div>
+<!-- <div style="height: 3rem;"></div> -->
 
 <section class="hero-card">
+  <div class="hero-decor"></div>
+
+  <!-- Floating Icons -->
+  <div class="floating-icons">
+    <i class="fa-solid fa-mobile-screen-button"></i>
+    <i class="fa-solid fa-tools"></i>
+    <i class="fa-solid fa-shield-halved"></i>
+    <i class="fa-solid fa-microchip"></i>
+  </div>
+
   <div class="hero-content">
-    <h1>Welcome to Mobo Shop</h1>
-    <p>Your one-stop solution for mobile & tech services</p>
+    <h1>Welcome to <span>Mobo Shop</span></h1>
+    <p>Your premium destination for mobiles, repairs, accessories & tech services.</p>
+
+    <button class="hero-btn" routerLink="/services">Explore Services</button>
   </div>
 </section>
 
-<div style="height: 3rem;"></div>
+
+<!-- <div style="height: 3rem;"></div> -->
 
 
 <section class="premium-features" appScrollAnimation>
@@ -96,16 +109,28 @@
 
 
 <section class="products">
-  <div class="card" *ngFor="let product of products" appScrollAnimation>
+  <div
+    class="card"
+    *ngFor="let product of products; let i = index"
+    appProductScrollAnimation
+    [animationType]="
+      i === 0 ? 'left' :
+      i === 1 ? 'bottom' :
+      i === 2 ? 'right' :
+      'fade'
+    "
+  >
     <div class="card-img">
-      <img [src]="product.img" alt="{{product.name}}">
+      <img [src]="product.img" alt="{{ product.name }}">
     </div>
     <div class="card-content">
-      <h3>{{product.name}}</h3>
-      <p>{{product.description}}</p>
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description }}</p>
     </div>
   </div>
 </section>
+
+
 
 <section class="post-products-section" appScrollAnimation>
   <div class="pps-wrapper">

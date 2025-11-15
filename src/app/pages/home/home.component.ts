@@ -4,11 +4,13 @@ import { HeroSliderComponent } from '../../components/hero-slider/hero-slider';
 import { ScrollAnimationDirective } from '../../directives/scroll-animation.directive';
 import { LocationComponent } from '../../components/location/location';
 import { LottieSectionComponent } from '../../components/lottie-section/lottie-section';
+import { RouterModule } from '@angular/router'; 
+import { ProductScrollAnimationDirective } from '../../directives/product-scroll-animation.directive';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeroSliderComponent, ScrollAnimationDirective,LocationComponent,LottieSectionComponent],
+  imports: [CommonModule, HeroSliderComponent, ScrollAnimationDirective,LocationComponent,LottieSectionComponent,RouterModule,ProductScrollAnimationDirective],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

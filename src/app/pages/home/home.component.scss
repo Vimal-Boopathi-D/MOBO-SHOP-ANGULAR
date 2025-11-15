@@ -6,37 +6,174 @@
   width: 100%;
 }
 
+
+
 /* --------------------------------------
-   HERO CARD
+   ADVANCED PREMIUM HERO CARD
 --------------------------------------- */
 .hero-card {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
-  background: rgba(255, 87, 34, 0.85);
-  backdrop-filter: blur(8px);
-  margin: 2rem auto;
-  max-width: 1100px;
-  border-radius: 18px;
+  padding: 2.5rem 1.5rem;   /* reduced from 4rem 2rem */
+  margin: 2.5rem auto;
   text-align: center;
+  max-width: 1200px;
+  border-radius: 28px;
+  overflow: hidden;
+
+  background: linear-gradient(135deg, #ff7a44, #ff4d2d);
+  background-size: 200% 200%;
+  animation: bgWave 6s ease infinite;
+
+  box-shadow: 
+    0 16px 40px rgba(0,0,0,0.22),
+    inset 0 0 40px rgba(255,255,255,0.12);
+
   color: #fff;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+}
 
-  .hero-content {
-    max-width: 600px;
 
-    h1 {
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
+.hero-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.32);
+}
 
-    p {
-      font-size: clamp(0.9rem, 2.2vw, 1.2rem);
-      color: #f5f5f5;
-    }
+/* Animated background movement */
+@keyframes bgWave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Light reflection layer */
+.hero-decor {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: -50%;
+  left: -20%;
+  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
+  filter: blur(80px);
+  transform: rotate(25deg);
+  animation: decorFloat 9s infinite;
+}
+
+@keyframes decorFloat {
+  0% { transform: translateY(0) rotate(25deg); }
+  50% { transform: translateY(-30px) rotate(25deg); }
+  100% { transform: translateY(0) rotate(25deg); }
+}
+
+/* Floating tech icons */
+.floating-icons i {
+  position: absolute;
+  font-size: 2.6rem;
+  opacity: 0.15;
+  animation: iconFloat 6s ease-in-out infinite alternate;
+  color: #fff;
+}
+
+.floating-icons i:nth-child(1) { top: 15%; left: 10%; animation-duration: 7s; }
+.floating-icons i:nth-child(2) { top: 70%; right: 10%; animation-duration: 8s; }
+.floating-icons i:nth-child(3) { top: 20%; right: 15%; animation-duration: 6s; }
+.floating-icons i:nth-child(4) { bottom: 18%; left: 20%; animation-duration: 9s; }
+
+@keyframes iconFloat {
+  0% { transform: translateY(0) rotate(0); }
+  100% { transform: translateY(-25px) rotate(12deg); }
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 750px;
+  animation: fadeUp 1s ease-out;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 900;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+  text-shadow: 
+    0 4px 18px rgba(0,0,0,0.25),
+    0 0 20px rgba(255,230,200,0.35);
+}
+
+.hero-content h1 span {
+  background: linear-gradient(90deg, #fff, #ffe7c3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+/* Button Design */
+.hero-btn {
+  margin-top: 1.8rem;
+  padding: 0.9rem 2.2rem;
+  border: none;
+  font-size: 1.15rem;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.hero-btn:hover {
+  background: rgba(255,255,255,0.35);
+  transform: scale(1.07);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+}
+
+/* Smooth entrance animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+/* --------------------------------------
+   Smooth Fade Up Animation
+--------------------------------------- */
+@keyframes fadeUpSmooth {
+  0% { opacity: 0; transform: translateY(22px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------
+   MOBILE FULL-WIDTH HERO CARD FIX
+--------------------------------------- */
+@media (max-width: 768px) {
+  .hero-card {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    margin-left: 50% !important;
+    transform: translateX(-50%) !important;
+    border-radius: 0 !important;
+  }
+}
+
+
+
 
 /* --------------------------------------
    PRODUCTS GRID
@@ -393,108 +530,83 @@
   }
 }
 /* -------------------------------------------------
-   Soft Taupe Luxury Section – Modern & Attractive
+   Premium Minimal White + Charcoal Elegant Section
 -------------------------------------------------- */
 
 .post-products-section {
   width: 100%;
   padding: 5rem 2rem;
-  margin: 4rem 0;
+  margin: 3.5rem 0;
 
-  background: linear-gradient(
-    135deg,
-    #ece8e4 0%,
-    #f5f3f0 50%,
-    #eae6e2 100%
-  );
-  border-radius: 40px;
+  background: #ffffff;
+  border-radius: 32px;
 
-  text-align: center;
-  position: relative;
-
-  /* Soft inner vignette (premium look) */
+  /* Soft floating shadow */
   box-shadow:
-    inset 0 0 140px rgba(0, 0, 0, 0.05),
-    0 15px 38px rgba(0, 0, 0, 0.08);
-
-  /* Decorative soft shape behind title */
-  &::before {
-    content: "";
-    width: 260px;
-    height: 260px;
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.85),
-      rgba(220, 215, 210, 0.3) 70%
-    );
-    border-radius: 50%;
-    position: absolute;
-    top: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    filter: blur(35px);
-    opacity: 0.9;
-    z-index: 0;
-  }
+    0 8px 25px rgba(0, 0, 0, 0.05),
+    0 18px 45px rgba(0, 0, 0, 0.06);
 
   .pps-wrapper {
     max-width: 900px;
     margin: 0 auto;
-    position: relative;
-    z-index: 2; /* ensures text stays above glow */
+    text-align: center;
+    padding: 3rem 2rem;
   }
 
-  /* Elegant Premium Title */
+  /* Premium Title */
   .pps-title {
     font-family: "Playfair Display", serif;
-    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    font-size: clamp(2.3rem, 4vw, 3.1rem);
     font-weight: 700;
-    color: #4a4038; /* warm charcoal */
-    margin-bottom: 1.4rem;
-    letter-spacing: 0.6px;
+    color: #1a1a1a;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.8rem;
+    position: relative;
+
+    /* Soft underline */
+    &::after {
+      content: "";
+      width: 70px;
+      height: 3px;
+      background: #1a1a1a;
+      border-radius: 5px;
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.6;
+    }
   }
 
-  /* Stylish underline element */
-  .pps-title::after {
-    content: "";
-    display: block;
-    width: 90px;
-    height: 3px;
-    background: linear-gradient(to right, #6a5f54, #a3978a);
-    margin: 1rem auto 0;
-    border-radius: 4px;
-    opacity: 0.6;
-  }
-
-  /* Premium description text */
+  /* Premium Description */
   .pps-description {
     font-family: "Inter", sans-serif;
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
-    font-weight: 300;
-    line-height: 1.85;
     max-width: 760px;
-    margin: 2rem auto 0;
-    color: #5b544c;
+    margin: 2.2rem auto 0;
+    color: #4a4a4a;
 
-    /* subtle soft shadow for premium depth */
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.8;
+    font-weight: 300;
+    opacity: 0.92;
   }
 }
 
-/* -------------------------------
-   Mobile Responsive
--------------------------------- */
+/* Responsive */
 @media (max-width: 480px) {
   .post-products-section {
     padding: 3rem 1.4rem;
+
+    .pps-wrapper {
+      padding: 1.8rem 1rem;
+    }
 
     .pps-title {
       font-size: 2rem;
     }
 
     .pps-description {
-      font-size: 1.08rem;
-      line-height: 1.7;
+      font-size: 1.1rem;
     }
   }
 }

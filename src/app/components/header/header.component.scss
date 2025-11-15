@@ -1,3 +1,6 @@
+/* --------------------------------------
+   ADVANCED HEADER NAVIGATION
+--------------------------------------- */
 .header-nav {
   position: fixed;
   top: 0;
@@ -11,158 +14,239 @@
   background: rgba(255, 255, 255, 0.05);
   z-index: 1000;
   transition: 0.4s ease;
-
-  .logo {
-    font-size: 1.8rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #ff5722, #ff9800, #ffc107);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  /* HAMBURGER */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-
-    span {
-      width: 26px;
-      height: 3px;
-      background: #fff;
-      border-radius: 2px;
-      transition: 0.3s ease;
-    }
-  }
-
-  /* NAV LINKS DESKTOP */
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-
-    li {
-      list-style: none;
-
-      a {
-        text-decoration: none;
-        color: #fff;
-        font-weight: 600;
-        padding: 0.6rem 1rem;
-        border-radius: 8px;
-        transition: 0.3s;
-
-        &:hover {
-          background: rgba(255, 87, 34, 0.15);
-          color: #ff9800;
-        }
-      }
-    }
-
-    /* DROPDOWN */
-    .dropdown {
-      position: relative;
-      cursor: pointer;
-
-      .dropdown-menu {
-        display: none;
-        position: absolute;
-        top: 110%;
-        left: 0;
-        min-width: 180px;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(12px);
-        border-radius: 10px;
-        padding: 0.5rem 0;
-        animation: fadeDown 0.3s ease;
-
-        li a {
-          display: block;
-          padding: 0.7rem 1rem;
-        }
-      }
-
-      &:hover .dropdown-menu {
-        display: block;
-      }
-    }
-  }
-
-  /* SCROLLED STYLE */
-  &.scrolled {
-    background: rgba(0, 0, 0, 0.45);
-    padding: 1rem 2rem;
-  }
 }
 
-/* -----------------------------------
+/* --------------------------------------
+   ULTRA ADVANCED ANIMATED LOGO
+--------------------------------------- */
+.header-nav .logo {
+  font-size: 1.9rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #ff5722, #ff9800, #ffc107);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.4s ease;
+  user-select: none;
+
+  /* subtle base glow */
+  text-shadow: 0 0 18px rgba(255, 150, 50, 0.35);
+}
+
+/* Hover: 3D lift + neon glow */
+.header-nav .logo:hover {
+  transform: translateY(-3px) scale(1.06);
+  filter: drop-shadow(0 0 8px rgba(255, 150, 50, 0.5));
+}
+
+/* Glow Pulse Effect Behind Logo */
+.header-nav .logo::after {
+  content: "";
+  position: absolute;
+  left: -5%;
+  top: -5%;
+  width: 110%;
+  height: 110%;
+  border-radius: 12px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 180, 80, 0.18),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: 0.4s;
+  pointer-events: none;
+}
+
+.header-nav .logo:hover::after {
+  opacity: 1;
+  animation: pulseGlow 1.7s ease infinite;
+}
+
+/* Light sweep shimmer */
+.header-nav .logo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: 0.5s ease;
+  pointer-events: none;
+}
+
+.header-nav .logo:hover::before {
+  left: 120%;
+  transition: 0.9s ease;
+}
+
+/* Pulse Animation */
+@keyframes pulseGlow {
+  0%   { transform: scale(1); opacity: 0.25; }
+  50%  { transform: scale(1.08); opacity: 0.45; }
+  100% { transform: scale(1); opacity: 0.25; }
+}
+
+/* --------------------------------------
+   HAMBURGER MENU
+--------------------------------------- */
+.header-nav .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.header-nav .hamburger span {
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* --------------------------------------
+   NAV LINKS (DESKTOP)
+--------------------------------------- */
+.header-nav .nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.header-nav .nav-links li {
+  list-style: none;
+}
+
+.header-nav .nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.header-nav .nav-links li a:hover {
+  background: rgba(255, 87, 34, 0.15);
+  color: #ff9800;
+}
+
+/* --------------------------------------
+   DROPDOWN MENU (DESKTOP)
+--------------------------------------- */
+.header-nav .nav-links .dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.header-nav .nav-links .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  min-width: 180px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  animation: fadeDown 0.3s ease;
+}
+
+.header-nav .nav-links .dropdown-menu li a {
+  display: block;
+  padding: 0.7rem 1rem;
+}
+
+.header-nav .nav-links .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* --------------------------------------
+   SCROLLED STYLE
+--------------------------------------- */
+.header-nav.scrolled {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 1rem 2rem;
+}
+
+/* --------------------------------------
    MOBILE RESPONSIVE
------------------------------------ */
+--------------------------------------- */
 @media (max-width: 768px) {
 
   .header-nav {
     padding: 1rem 1.5rem;
+  }
 
-    .hamburger {
-      display: flex;
-    }
+  /* Show hamburger */
+  .header-nav .hamburger {
+    display: flex;
+  }
 
-    /* MOBILE NAV */
-    .nav-links {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(12px);
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1.2rem;
-      gap: 1rem;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: 0.4s ease;
+  /* Mobile Nav Links */
+  .header-nav .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.2rem;
+    gap: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.4s ease;
+  }
 
-      &.open {
-        max-height: 400px;
-        opacity: 1;
-      }
+  .header-nav .nav-links.open {
+    max-height: 400px;
+    opacity: 1;
+  }
 
-      li {
-        width: 100%;
+  .header-nav .nav-links li {
+    width: 100%;
+  }
 
-        a {
-          width: 100%;
-          padding: 0.8rem;
-          display: block;
-        }
-      }
+  .header-nav .nav-links li a {
+    width: 100%;
+    padding: 0.8rem;
+    display: block;
+  }
 
-      /* MOBILE DROPDOWN (CLICK OPEN) */
-      .dropdown {
-        width: 100%;
+  /* Mobile Dropdown */
+  .header-nav .nav-links .dropdown {
+    width: 100%;
+  }
 
-        .dropdown-menu {
-          display: none;
-          position: relative;
-          background: rgba(255, 255, 255, 0.1);
-          width: 100%;
-          border-radius: 8px;
-        }
+  .header-nav .nav-links .dropdown-menu {
+    display: none;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    border-radius: 8px;
+  }
 
-        &.open .dropdown-menu {
-          display: block;
-        }
-      }
-    }
+  .header-nav .nav-links .dropdown.open .dropdown-menu {
+    display: block;
   }
 }
 
-/* Dropdown animation */
+/* Dropdown Animation */
 @keyframes fadeDown {
   from { opacity: 0; transform: translateY(-10px); }
   to   { opacity: 1; transform: translateY(0); }

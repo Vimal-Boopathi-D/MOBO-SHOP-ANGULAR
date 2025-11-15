@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,17 @@ import { FooterComponent } from './components/footer/footer.component';
 })
 export class AppComponent implements OnInit {
 
+  constructor(private router: Router) {}
+
   ngOnInit() {
+    // ⭐ Scroll to top on every navigation
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+    // ⭐ Preload images
     this.preloadImages([
       'assets/images/service.jpg',
       'assets/images/contact-us.jpg',
