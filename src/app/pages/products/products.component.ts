@@ -1,58 +1,64 @@
 import { Component, signal, computed } from '@angular/core';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { ScrollAnimationDirective } from '../../directives/scroll-animation.directive';
-import { HeroBannerComponent } from '../../components/hero-banner/hero-banner'; 
+import { HeroBannerComponent } from '../../components/hero-banner/hero-banner';
+import { ProductCardComponent } from '../../components/product-card/product-card';
+
 
 @Component({
   selector: 'app-products',
   standalone: true,
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
-  imports: [CommonModule, ScrollAnimationDirective, HeroBannerComponent]
+  imports: [CommonModule, ScrollAnimationDirective, HeroBannerComponent, ProductCardComponent]
 })
 export class ProductsComponent {
-  categories = ['All', 'Mobile', 'Laptop', 'Accessories'];
 
-products = [
-  { 
-    name: 'iPhone 12', 
-    category: 'Mobile', 
-    price: 25000, 
-    img: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-black-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343705000' 
-  },
-{ 
-    name: 'Samsung Galaxy S21', 
-    category: 'Mobile', 
-    price: 22000, 
-    img: 'https://m.media-amazon.com/images/I/71asXBK4i7L._AC_UY218_.jpg?auto=format&fit=crop&w=500&q=60'
-  },
-  { 
-    name: 'Dell Inspiron 15', 
-    category: 'Laptop', 
-    price: 35000, 
-    img: 'https://m.media-amazon.com/images/I/51Zl9TAM8kL.jpg?auto=format&fit=crop&w=500&q=60'
-  },
-  { 
-    name: 'HP Pavilion 15', 
-    category: 'Laptop', 
-    price: 40000, 
-    img: 'https://m.media-amazon.com/images/I/71RUyskVR+L._AC_UY218_.jpg?auto=format&fit=crop&w=500&q=60'
-  },
-  { 
-    name: 'Mobile Cover', 
-    category: 'Accessories', 
-    price: 500, 
-    img: 'https://m.media-amazon.com/images/I/41eAMpEd1UL.AC_SX250.jpg?auto=format&fit=crop&w=500&q=60'
-  },
-  { 
-    name: 'Charger', 
-    category: 'Accessories', 
-    price: 800, 
-    img: 'https://m.media-amazon.com/images/I/61Blek+TonL._AC_UL320_.jpg?auto=format&fit=crop&w=500&q=60'
-  },
-];
+  categories = [
+    { label: 'All', icon: 'fa-grid-2' },
+    { label: 'Mobile', icon: 'fa-mobile' },
+    { label: 'Laptop', icon: 'fa-laptop' },
+    { label: 'Accessories', icon: 'fa-headphones' }
+  ];
 
-
+  products = [
+    {
+      name: 'iPhone 12',
+      category: 'Mobile',
+      price: 25000,
+      discount: 15,
+      rating: 4.8,
+      desc: 'OLED Display · A14 Bionic · Dual Camera',
+      img: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-black-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343705000'
+    },
+    {
+      name: 'Samsung Galaxy S21',
+      category: 'Mobile',
+      price: 22000,
+      discount: 10,
+      rating: 4.5,
+      desc: 'Dynamic AMOLED · 8GB RAM · 64MP Camera',
+      img: 'https://m.media-amazon.com/images/I/71asXBK4i7L.jpg'
+    },
+    {
+      name: 'Dell Inspiron 15',
+      category: 'Laptop',
+      price: 35000,
+      discount: 20,
+      rating: 4.2,
+      desc: 'Intel i5 · 8GB RAM · 512GB SSD',
+      img: 'https://m.media-amazon.com/images/I/51Zl9TAM8kL.jpg'
+    },
+    {
+      name: 'Shockproof Mobile Case',
+      category: 'Accessories',
+      price: 500,
+      discount: 30,
+      rating: 4.6,
+      desc: 'Shockproof · Matte Black · Anti-Slip',
+      img: 'https://m.media-amazon.com/images/I/41eAMpEd1UL.jpg'
+    }
+  ];
 
   selectedCategory = signal('All');
 
@@ -61,7 +67,8 @@ products = [
     return this.products.filter(p => p.category === this.selectedCategory());
   });
 
-  selectCategory(category: string) {
-    this.selectedCategory.set(category);
+  selectCategory(cat: string) {
+    this.selectedCategory.set(cat);
   }
 }
+ 

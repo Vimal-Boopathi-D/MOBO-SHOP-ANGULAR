@@ -1,0 +1,24 @@
+<div class="product-card">
+
+  <span class="discount">-{{ product.discount }}%</span>
+
+  <div class="image-box">
+    <img [src]="product.img" alt="{{ product.name }}">
+  </div>
+
+  <h3>{{ product.name }}</h3>
+  <p class="desc">{{ product.desc }}</p>
+
+  <p class="rating">⭐ {{ product.rating }}</p>
+
+  <div class="price">
+    <span class="new">₹{{ finalPrice }}</span>
+    <span class="old">₹{{ product.price }}</span>
+  </div>
+
+  <button class="add-btn">
+    <i class="fa-solid fa-cart-plus"></i>
+    Add to Cart
+  </button>
+
+</div>

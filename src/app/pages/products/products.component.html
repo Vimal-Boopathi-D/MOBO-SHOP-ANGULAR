@@ -5,22 +5,72 @@
 ></app-hero-banner>
 
 <section class="products-page">
-  <h2>Our Products</h2>
 
+  <h2 class="page-title">Our Product Collection</h2>
+
+  <!-- CATEGORY FILTERS -->
   <div class="categories">
     <button 
-      *ngFor="let cat of categories" 
-      (click)="selectCategory(cat)" 
-      [class.active]="selectedCategory() === cat">
-      {{cat}}
+      *ngFor="let c of categories"
+      (click)="selectCategory(c.label)"
+      [class.active]="selectedCategory() === c.label">
+      <i class="fa-solid" [ngClass]="c.icon"></i> 
+      {{c.label}}
     </button>
   </div>
 
   <div class="products-grid">
-    <div class="card" *ngFor="let product of filteredProducts()" appScrollAnimation>
-      <img [src]="product.img" alt="{{product.name}}">
-      <h3>{{product.name}}</h3>
-      <p>Price: ₹{{product.price}}</p>
+
+  <app-product-card
+    *ngFor="let p of filteredProducts()"
+    [product]="p"
+  ></app-product-card>
+
+</div>
+
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div>
+      <i class="fa-solid fa-truck-fast"></i>
+      <h3>Superfast Delivery</h3>
+      <p>Delivery within 24–48 hours.</p>
     </div>
-  </div>
+
+    <div>
+      <i class="fa-solid fa-shield"></i>
+      <h3>Secure Warranty</h3>
+      <p>All products include brand warranty.</p>
+    </div>
+
+    <div>
+      <i class="fa-solid fa-circle-check"></i>
+      <h3>Verified Products</h3>
+      <p>100% original & certified items.</p>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews">
+    <h2>What Customers Say</h2>
+    <div class="review-grid">
+
+      <div class="review">
+        “Amazing quality & lightning fast delivery!”
+        <span>- Priya </span>
+      </div>
+
+      <div class="review">
+        “Best pricing in the market. Highly recommended.”
+        <span>- Aakash </span>
+      </div>
+
+      <div class="review">
+        “Perfect packaging and excellent support.”
+        <span>- Vinay </span>
+      </div>
+
+    </div>
+  </section>
+
 </section>
