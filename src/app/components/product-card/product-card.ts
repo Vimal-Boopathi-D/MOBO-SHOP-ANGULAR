@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -10,10 +11,19 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductCardComponent {
 
-  @Input() product: any = null;
+  @Input() product: any;
 
-  get finalPrice() {
-    return this.product.price - (this.product.price * this.product.discount / 100);
+  constructor(private cart: CartService) {}
+
+  // ✔ Final discounted price
+  getFinalPrice(): number {
+    return Math.round(
+      this.product.price - (this.product.price * this.product.discount / 100)
+    );
   }
 
+  // ✔ Add to cart
+  addToCart() {
+    this.cart.addToCart(this.product);
+  }
 }

@@ -1,0 +1,124 @@
+.success-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOP HALF - ORDER DETAILS */
+.top-section {
+  padding: 3rem 2rem;
+  flex: 1;
+  background: #ffffff;
+  text-align: center;
+}
+
+.success-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #222;
+}
+
+.success-sub {
+  color: #666;
+  font-size: 1.05rem;
+  margin-top: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.order-box {
+  width: 90%;
+  max-width: 420px;
+  margin: 0 auto;
+  background: #f7f9fb;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+}
+
+.order-box .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 1.05rem;
+}
+
+.green {
+  color: #2ecc71;
+  font-weight: 700;
+}
+
+/* BOTTOM HALF - GREEN SUCCESS AREA */
+.bottom-section {
+  height: 42vh;
+  background: linear-gradient(135deg, #1fbf5b, #17a74c);
+  border-top-left-radius: 42px;
+  border-top-right-radius: 42px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+/* TICK ANIMATION */
+.check-wrapper {
+  width: 120px;
+  height: 120px;
+  background: white;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: popIn 0.6s ease-out;
+}
+
+.tick {
+  width: 40px;
+  height: 20px;
+  border-left: 5px solid #1fbf5b;
+  border-bottom: 5px solid #1fbf5b;
+  transform: rotate(-45deg);
+  opacity: 0;
+  animation: tickDraw 0.8s ease forwards 0.3s;
+}
+
+
+@keyframes popIn {
+  from { transform: scale(0.4); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes tickDraw {
+  0% {
+    opacity: 0;
+    transform: rotate(-45deg) scale(0.2);
+  }
+  60% {
+    opacity: 1;
+    transform: rotate(-45deg) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-45deg) scale(1);
+  }
+}
+
+
+/* BUTTON */
+.continue-btn {
+  background: #ffffff;
+  color: #1fbf5b;
+  padding: 1rem 2.4rem;
+  font-size: 1.15rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-weight: 700;
+}
+
+.continue-btn:hover {
+  transform: translateY(-3px);
+  background: #e9fbe9;
+}

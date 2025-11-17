@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ScrollAnimationDirective } from '../../directives/scroll-animation.directive';
 import { HeroBannerComponent } from '../../components/hero-banner/hero-banner';
 import { ProductCardComponent } from '../../components/product-card/product-card';
+import { PRODUCTS_DATA } from '../../products.data';
+import { CartService } from '../../services/cart.service';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
@@ -10,55 +13,38 @@ import { ProductCardComponent } from '../../components/product-card/product-card
   standalone: true,
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
-  imports: [CommonModule, ScrollAnimationDirective, HeroBannerComponent, ProductCardComponent]
+  imports: [
+    CommonModule,
+    ScrollAnimationDirective,
+    HeroBannerComponent,
+    ProductCardComponent,
+    RouterModule
+  ]
 })
 export class ProductsComponent {
 
   categories = [
     { label: 'All', icon: 'fa-grid-2' },
-    { label: 'Mobile', icon: 'fa-mobile' },
-    { label: 'Laptop', icon: 'fa-laptop' },
+    { label: 'Brand New Mobiles', icon: 'fa-mobile-screen' },
+    { label: 'Second Hand Mobiles', icon: 'fa-mobile-retro' },
+    { label: 'Brand New Laptops', icon: 'fa-laptop-code' },
+    { label: 'Second Hand Laptops', icon: 'fa-laptop' },
     { label: 'Accessories', icon: 'fa-headphones' }
   ];
 
-  products = [
-    {
-      name: 'iPhone 12',
-      category: 'Mobile',
-      price: 25000,
-      discount: 15,
-      rating: 4.8,
-      desc: 'OLED Display · A14 Bionic · Dual Camera',
-      img: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-black-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343705000'
-    },
-    {
-      name: 'Samsung Galaxy S21',
-      category: 'Mobile',
-      price: 22000,
-      discount: 10,
-      rating: 4.5,
-      desc: 'Dynamic AMOLED · 8GB RAM · 64MP Camera',
-      img: 'https://m.media-amazon.com/images/I/71asXBK4i7L.jpg'
-    },
-    {
-      name: 'Dell Inspiron 15',
-      category: 'Laptop',
-      price: 35000,
-      discount: 20,
-      rating: 4.2,
-      desc: 'Intel i5 · 8GB RAM · 512GB SSD',
-      img: 'https://m.media-amazon.com/images/I/51Zl9TAM8kL.jpg'
-    },
-    {
-      name: 'Shockproof Mobile Case',
-      category: 'Accessories',
-      price: 500,
-      discount: 30,
-      rating: 4.6,
-      desc: 'Shockproof · Matte Black · Anti-Slip',
-      img: 'https://m.media-amazon.com/images/I/41eAMpEd1UL.jpg'
-    }
-  ];
+  products = [...PRODUCTS_DATA];
+
+  constructor(public cart: CartService) {
+    this.shuffleProducts();
+    this.setupStickyScroll();
+  }
+
+  shuffleProducts() {
+    this.products = this.products
+      .map(item => ({ ...item, random: Math.random() }))
+      .sort((a, b) => a.random - b.random)
+      .map(({ random, ...rest }) => rest);
+  }
 
   selectedCategory = signal('All');
 
@@ -70,5 +56,24 @@ export class ProductsComponent {
   selectCategory(cat: string) {
     this.selectedCategory.set(cat);
   }
+
+  // CART DRAWER SIGNAL
+  drawerOpen = signal(false);
+
+  openCartDrawer() {
+    this.drawerOpen.set(true);
+  }
+
+  closeCartDrawer() {
+    this.drawerOpen.set(false);
+  }
+
+  // STICKY CART BUTTON
+  isSticky = signal(false);
+
+  setupStickyScroll() {
+    window.addEventListener('scroll', () => {
+      this.isSticky.set(window.scrollY > 200);
+    });
+  }
 }
- 

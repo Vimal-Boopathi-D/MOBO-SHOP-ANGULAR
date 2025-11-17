@@ -217,3 +217,174 @@
     }
   }
 }
+
+
+/* Floating Cart Button */
+/* Animated Floating Cart Button */
+.floating-cart {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  background: linear-gradient(135deg,
+    #ff7a1a,
+    #ff3d54,
+    #6a5cff,
+    #2dd4bf,
+    #ff7a1a
+  );
+  background-size: 400% 400%;
+  animation: cartGradient 6s ease infinite;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  transition: 0.25s;
+  box-shadow: 0 10px 25px rgba(255, 122, 26, 0.35);
+
+  i {
+    font-size: 1.7rem;
+    color: white;
+  }
+
+  &:hover {
+    transform: scale(1.12);
+    box-shadow: 0 14px 35px rgba(255, 122, 26, 0.45);
+  }
+
+  .cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #ff3b32;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: badgeBounce 0.4s ease-out;
+  }
+}
+
+/* Gradient Animation */
+@keyframes cartGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Sticky when scroll */
+.floating-cart.sticky {
+  bottom: 90px;
+}
+
+@keyframes badgeBounce {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+/* Cart Drawer */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 380px;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: -6px 0 20px rgba(0,0,0,0.12);
+  padding: 1.5rem;
+  transition: 0.3s ease;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  button {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+}
+
+.drawer-items {
+  margin-top: 1.2rem;
+  flex-grow: 1;
+  overflow-y: auto;
+
+  .drawer-item {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+
+    img {
+      width: 70px;
+      height: 70px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .info h4 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .info span {
+      font-weight: 700;
+      color: #ff7a1a;
+    }
+  }
+}
+
+.drawer-footer {
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+
+  .checkout-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #ff7a1a, #ff9e53);
+    padding: 0.9rem;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+}

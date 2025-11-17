@@ -1,0 +1,41 @@
+<div class="success-container">
+
+  <!-- TOP SECTION (Order Details) -->
+  <div class="top-section">
+
+    <h2 class="success-title">Order Confirmed!</h2>
+    <p class="success-sub">
+      Thank you for your purchase. Your order has been successfully placed.
+    </p>
+
+    <div class="order-box">
+      <div class="row">
+        <span>Order ID</span>
+        <strong>#{{ orderId }}</strong>
+      </div>
+
+      <div class="row">
+        <span>Payment Status</span>
+        <strong class="green">Successful</strong>
+      </div>
+
+      <div class="row">
+        <span>Delivery Estimate</span>
+        <strong>3–5 Business Days</strong>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM GREEN SECTION -->
+  <div class="bottom-section">
+    <div class="check-wrapper">
+      <div class="tick"></div>
+    </div>
+
+    <button routerLink="/products" class="continue-btn">
+      Continue Shopping →
+    </button>
+  </div>
+
+</div>

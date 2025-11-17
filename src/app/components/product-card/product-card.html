@@ -1,24 +1,37 @@
 <div class="product-card">
 
-  <span class="discount">-{{ product.discount }}%</span>
+  <!-- Discount Badge -->
+  <span class="discount" *ngIf="product.discount">
+    -{{ product.discount }}%
+  </span>
 
+  <!-- Image -->
   <div class="image-box">
     <img [src]="product.img" alt="{{ product.name }}">
   </div>
 
+  <!-- Name -->
   <h3>{{ product.name }}</h3>
+
+  <!-- Description -->
   <p class="desc">{{ product.desc }}</p>
 
-  <p class="rating">⭐ {{ product.rating }}</p>
+  <!-- Rating -->
+<div class="rating-soft">
+  <i class="fa-solid fa-star"></i>
+  <span>{{ product.rating }}</span>
+</div>
 
+
+  <!-- Price Section -->
   <div class="price">
-    <span class="new">₹{{ finalPrice }}</span>
+    <span class="new">₹{{ getFinalPrice() }}</span>
     <span class="old">₹{{ product.price }}</span>
   </div>
 
-  <button class="add-btn">
-    <i class="fa-solid fa-cart-plus"></i>
-    Add to Cart
+  <!-- Add To Cart Button -->
+  <button class="add-btn" (click)="addToCart()">
+    <i class="fa-solid fa-cart-plus"></i> Add to Cart
   </button>
 
 </div>
