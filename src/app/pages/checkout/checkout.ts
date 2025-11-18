@@ -93,7 +93,7 @@ export class CheckoutComponent {
   // FINAL WORKING VERSION (NO-CORS)
   private async postOrderToSheet(payload: any) {
 
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmHs6z-WvYN6pc_mIDLXWiQF3J75r5A3Y0gFMJvvvXGof6nXQ0OzqwaGfPMK9d_YXnhA/exec';
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyUO-dCWFTEtx6HlyHDfkjH0I-x1aMA27q7gCaf6Dqt81Bh6KpqPIQ8jOtLTmG_qOm8Jg/exec';
 
     // CORS bypass mode
     await fetch(APPS_SCRIPT_URL, {
