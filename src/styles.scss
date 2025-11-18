@@ -12,3 +12,6 @@ html, body {
   overflow-x: hidden; // prevent horizontal scroll
 }
 
+* {
+  box-sizing: border-box;
+}

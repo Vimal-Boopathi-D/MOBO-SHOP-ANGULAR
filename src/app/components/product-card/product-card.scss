@@ -6,9 +6,9 @@
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   transition: 0.3s ease;
   position: relative;
+
   display: flex;
   flex-direction: column;
-
   width: 100%;
   box-sizing: border-box;
 
@@ -17,6 +17,7 @@
     box-shadow: 0 12px 26px rgba(0,0,0,0.12);
   }
 
+  /* DISCOUNT BADGE */
   .discount {
     position: absolute;
     background: #ff3b30;
@@ -29,9 +30,10 @@
     z-index: 3;
   }
 
+  /* IMAGE */
   .image-box {
     height: 180px;
-    max-height: 180px;       /* 👈 allows mobile override */
+    max-height: 180px;
     overflow: hidden;
     border-radius: 12px;
     margin-bottom: 0.8rem;
@@ -48,23 +50,40 @@
     }
   }
 
+  /* TITLE */
   h3 {
     font-size: 1.1rem;
     font-weight: 700;
     color: #222;
-    min-height: 42px;
+
+    min-height: 40px;
+    max-height: 40px;
+    overflow: hidden;
+    line-height: 1.28;
     margin: 0 0 4px;
-    line-height: 1.3;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
+  /* DESCRIPTION */
   .desc {
     font-size: 0.85rem;
     color: #666;
+
     min-height: 32px;
-    line-height: 1.35;
+    max-height: 32px;
+    overflow: hidden;
+    line-height: 1.32;
     margin-bottom: 6px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
+  /* RATING */
   .rating-soft {
     display: inline-flex;
     align-items: center;
@@ -78,6 +97,7 @@
     }
   }
 
+  /* PRICE */
   .price {
     display: flex;
     align-items: center;
@@ -97,6 +117,7 @@
     }
   }
 
+  /* BUTTON */
   .add-btn {
     margin-top: auto;
     width: 100%;
@@ -118,5 +139,42 @@
       transform: scale(1.05);
       box-shadow: 0 6px 16px rgba(255,122,26,0.3);
     }
+  }
+}
+
+/* ============================
+   📱 Perfect Mobile Fix
+   ============================ */
+@media (max-width: 480px) {
+
+  .product-card {
+    height: 330px !important;
+    padding: 0.9rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .product-card .image-box {
+    height: 140px !important;
+    max-height: 140px !important;
+  }
+
+  .product-card h3 {
+    font-size: 0.95rem;
+    min-height: 36px;
+    max-height: 36px;
+  }
+
+  .product-card .desc {
+    font-size: 0.78rem;
+    min-height: 30px;
+    max-height: 30px;
+  }
+
+  .product-card .add-btn {
+    font-size: 0.82rem;
+    padding: 0.65rem;
   }
 }
