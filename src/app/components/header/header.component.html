@@ -1,30 +1,31 @@
-<nav [class.scrolled]="isScrolled()" class="header-nav">
+<nav 
+  [class.scrolled]="isScrolled()" 
+  [class.dark-nav]="darkNav()" 
+  class="header-nav">
 
   <div class="logo">Mobo Shop</div>
 
-  <!-- Hamburger -->
   <div class="hamburger" (click)="menuOpen = !menuOpen">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </div>
 
-  <!-- NAV LINKS -->
   <ul class="nav-links" [class.open]="menuOpen">
-
     <li><a routerLink="/" (click)="menuOpen=false">Home</a></li>
-
     <li><a routerLink="/products" (click)="menuOpen=false">Products</a></li>
 
-    <li class="dropdown" [class.open]="dropdownOpen" (click)="dropdownOpen = !dropdownOpen">
-      <a href="javascript:void(0)">Services <span class="arrow">&#x25BE;</span></a>
+    <li 
+      class="dropdown"
+      [class.open]="dropdownOpen"
+      (click)="dropdownOpen = !dropdownOpen">
+      
+      <a href="javascript:void(0)">Services</a>
 
       <ul class="dropdown-menu">
         <li><a routerLink="/services" (click)="menuOpen=false">Mobile Services</a></li>
         <li><a routerLink="/services/laptop" (click)="menuOpen=false">Laptop Services</a></li>
         <li><a routerLink="/services/cctv" (click)="menuOpen=false">CCTV Installation</a></li>
-        <li><a routerLink="/services/other" (click)="menuOpen=false">Other Services</a></li>
       </ul>
+
     </li>
 
     <li><a routerLink="/contact" (click)="menuOpen=false">Contact</a></li>

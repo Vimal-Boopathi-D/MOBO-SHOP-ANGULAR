@@ -2,12 +2,51 @@
   padding: 2rem;
   width: 100%;
 
-  .title {
-    text-align: center;
-    font-size: 2.3rem;
-    font-weight: 800;
-    margin-bottom: 2rem;
+ .checkout-title {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #111;
+  margin-bottom: 2.6rem;
+  margin-top: 1rem;
+
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+
+  /* Smooth fade-in */
+  animation: fadeDown 0.6s ease-out;
+}
+
+/* Premium gradient underline */
+.checkout-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+
+  width: 80px;
+  height: 4px;
+  border-radius: 20px;
+
+  background: linear-gradient(90deg, #ff7a1a, #ff3d54, #6a5cff);
+  background-size: 300% 300%;
+  animation: underlineMove 3s ease infinite;
+}
+
+/* Subtle title animation */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
   .cart-container {
     display: flex;
@@ -185,23 +224,43 @@
       margin-bottom: 1rem;
     }
 
-    .checkout-btn {
-      width: 100%;
-      background: linear-gradient(90deg, #ff7a1a, #ff9e53);
-      color: white;
-      padding: 0.9rem;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: 0.3s;
+.checkout-btn {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
 
-      &:hover {
-        transform: scale(1.03);
-        box-shadow: 0 6px 16px rgba(255, 122, 26, 0.35);
-      }
-    }
+  background: linear-gradient(
+    135deg,
+    #ff7a1a,
+    #ff3d54,
+    #6a5cff,
+    #2dd4bf,
+    #ff7a1a
+  );
+  background-size: 400% 400%;
+  animation: cartGradient 6s ease infinite;
+
+  box-shadow: 0 10px 22px rgba(255, 122, 26, 0.35);
+  transition: 0.25s ease;
+}
+
+/* Hover Effects (Glow + Scale) */
+.checkout-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 14px 35px rgba(255, 122, 26, 0.45);
+}
+
+@keyframes cartGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
     .secure {
       margin-top: 1rem;
@@ -219,9 +278,6 @@
   .empty {
     text-align: center;
 
-    img {
-      width: 240px;
-    }
 
     h3 {
       font-size: 1.5rem;
@@ -239,5 +295,258 @@
       cursor: pointer;
       font-size: 1rem;
     }
+  }
+}
+
+
+
+/* PREMIUM EMPTY CART SECTION — Ultra-clean + corporate style */
+.empty {
+  text-align: center;
+
+  .empty-box {
+    max-width: 480px;
+    background: #ffffff;
+    margin: auto;
+    padding: 2.8rem 2rem;
+    border-radius: 24px;
+    box-shadow: 0 12px 38px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+
+  img {
+    width: 220px;
+    margin-bottom: 1.4rem;
+    opacity: 0.92;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 0.6rem;
+  }
+
+  p {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
+  }
+
+  .premium-info {
+    font-size: 0.95rem;
+    color: #666;
+    background: #f7f7f7;
+    padding: 1rem;
+    border-radius: 14px;
+    margin-bottom: 1.8rem;
+    border: 1px solid #eaeaea;
+  }
+
+  .shop-now-btn {
+    padding: 0.95rem 2rem;
+    border: none;
+    border-radius: 14px;
+    background: #111;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s ease;
+
+    &:hover {
+      transform: scale(1.06);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+    }
+  }
+}
+
+
+/* Premium dark background behind transparent navbar */
+.nav-bg-fix-dark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 71px;    /* navbar height */
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 900;
+  pointer-events: none;
+}
+
+/* ============================================================
+   📱 MOBILE RESPONSIVE — CART PAGE
+   ============================================================ */
+
+/* ---------- Tablet (max-width: 992px) ---------- */
+@media (max-width: 992px) {
+
+  .cart-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .summary-box {
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+
+  .checkout-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* ---------- Mobile (max-width: 768px) ---------- */
+@media (max-width: 768px) {
+
+  .cart-page {
+    padding: 1.2rem;
+  }
+
+  .checkout-title {
+    font-size: 2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  /* Cart container becomes column */
+  .cart-container {
+    flex-direction: column;
+  }
+
+  /* Offer bar smaller */
+  .offer-bar {
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+  }
+
+  /* Cart item becomes stacked */
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .product-img {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Details full width */
+  .details {
+    width: 100%;
+
+    h3 {
+      font-size: 1.15rem;
+    }
+
+    .desc {
+      font-size: 0.85rem;
+    }
+
+    .price-box .price {
+      font-size: 1.3rem;
+    }
+  }
+
+  /* quantity + remove arranged together */
+  .qty-box {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .remove {
+    align-self: flex-end;
+    margin-top: -2.2rem;
+    font-size: 1.2rem;
+  }
+
+  /* Summary box */
+  .summary-box {
+    padding: 1.2rem;
+    border-radius: 12px;
+  }
+
+  .summary-total span {
+    font-size: 1.2rem;
+  }
+
+  .checkout-btn {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  /* Empty Lottie animation section */
+  .empty {
+    padding: 0 1rem;
+
+    .shop-now-btn {
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .empty app-lottie-section {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* ---------- Small Mobile (max-width: 480px) ---------- */
+@media (max-width: 480px) {
+
+  .checkout-title {
+    font-size: 1.7rem;
+    letter-spacing: -0.3px;
+  }
+
+  .item {
+    border-radius: 12px;
+  }
+
+  .product-img {
+    width: 95px;
+    height: 95px;
+  }
+
+  .details h3 {
+    font-size: 1.05rem;
+  }
+
+  .details .desc {
+    font-size: 0.8rem;
+  }
+
+  .qty-box span {
+    font-size: 0.95rem;
+  }
+
+  .summary-box {
+    padding: 1rem;
+  }
+
+  .summary-total span {
+    font-size: 1.15rem;
+  }
+
+  .checkout-btn {
+    font-size: 0.95rem;
+  }
+
+  /* Lottie + Empty Cart */
+  .empty-box {
+    padding: 2rem 1.4rem !important;
+  }
+
+  .shop-now-btn {
+    width: 100%;
+    border-radius: 10px;
   }
 }

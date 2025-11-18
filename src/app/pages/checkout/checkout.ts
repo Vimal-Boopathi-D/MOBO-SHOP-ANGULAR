@@ -1,61 +1,55 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { Router } from '@angular/router';
+import { SuccessComponent } from '../success/success';
+import { RouterModule } from '@angular/router';
 
 declare var Razorpay: any;
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
+  imports: [CommonModule, SuccessComponent,RouterModule],
   templateUrl: './checkout.html',
   styleUrls: ['./checkout.scss'],
 })
 export class CheckoutComponent {
-  constructor(public cart: CartService, private router: Router) {}
+
+  showSuccessModal = false;
+  paymentMethod: string = "Paid";
+
+  constructor(public cart: CartService,  public router: Router ) {}
 
   processPayment() {
-    const method = (document.querySelector('input[name="pay"]:checked') as any).value;
+    const method = (document.querySelector('input[name="pay"]:checked') as any)?.value;
 
-    // ------------------------
-    // CASH ON DELIVERY
-    // ------------------------
     if (method === 'cod') {
+      this.paymentMethod = "Cash on Delivery";
       this.cart.clearCart();
-      this.router.navigate(['/success'], {
-        queryParams: { method: 'COD' },
-      });
+      this.showSuccessModal = true;
       return;
     }
 
-    // ------------------------
-    // RAZORPAY PAYMENT GATEWAY
-    // ------------------------
-    const options = {
+    const razor = new Razorpay({
       key: 'rzp_test_RgtjTiFyCjKHbi',
       amount: this.cart.totalPrice() * 100,
       currency: 'INR',
-      name: 'My Shop',
+      name: 'Mobo Shop',
       description: 'Order Payment',
 
       handler: () => {
+        this.paymentMethod = "Paid Online";
         this.cart.clearCart();
-        this.router.navigate(['/success'], {
-          queryParams: { method: 'ONLINE' },
-        });
-      },
-      prefill: {
-        name: 'Test User',
-        email: 'test@example.com',
-        contact: '9876543210',
-      },
-    };
-
-    const razor = new Razorpay(options);
-
-    razor.on('payment.failed', () => {
-      alert('Payment Failed ❌');
+        this.showSuccessModal = true;
+      }
     });
 
+    razor.on('payment.failed', () => alert('❌ Payment Failed'));
     razor.open();
+  }
+
+  closeSuccess() {
+    this.showSuccessModal = false;
   }
 }

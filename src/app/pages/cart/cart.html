@@ -1,21 +1,24 @@
+<!-- NAV VISIBILITY FIX FOR WHITE PAGES -->
+<div class="nav-bg-fix-dark"></div>
+<div style="height: 70px;"></div>
+
 <section class="cart-page">
 
-  <h2 class="title">🛒 Your Shopping Cart</h2>
+  <h2 class="checkout-title">Your Shopping Cart</h2>
 
   <div class="cart-container" *ngIf="cart.cartItems().length; else emptyCart">
 
     <!-- LEFT CART ITEMS -->
     <div class="cart-items">
-      
-      <!-- OFFER BAR -->
+
       <div class="offer-bar">
-        <i class="fa-solid fa-tag"></i>  
-        You have unlocked **FREE delivery** on this order!
+        <i class="fa-solid fa-tag"></i>
+        You have unlocked <strong>Free Delivery</strong> on this order.
       </div>
 
       <div class="item" *ngFor="let i of cart.cartItems()">
-        
-        <img [src]="i.img" class="product-img"/>
+
+        <img [src]="i.img" class="product-img" />
 
         <div class="details">
           <h3>{{ i.name }}</h3>
@@ -23,12 +26,12 @@
 
           <div class="price-box">
             <span class="price">₹{{ i.price }}</span>
-            <small class="save">You save ₹{{ (i.price * 0.10) | number: '1.0-0' }}</small>
+            <small class="save">Save ₹{{ (i.price * 0.10) | number:'1.0-0' }}</small>
           </div>
 
           <div class="delivery">
             <i class="fa-solid fa-truck"></i>
-            Delivery by <b>Tomorrow, 9 PM</b>
+            Estimated Delivery: <strong>Tomorrow, 9 PM</strong>
           </div>
         </div>
 
@@ -41,11 +44,14 @@
         <button class="remove" (click)="cart.removeItem(i.name)">
           <i class="fa-solid fa-trash"></i>
         </button>
+
       </div>
+
     </div>
 
     <!-- RIGHT SUMMARY -->
     <div class="summary-box">
+
       <h3>Order Summary</h3>
 
       <div class="summary-row">
@@ -55,7 +61,7 @@
 
       <div class="summary-row">
         <span>Delivery Fee</span>
-        <span class="free">FREE</span>
+        <span class="free">Free</span>
       </div>
 
       <div class="summary-row">
@@ -75,22 +81,33 @@
       </button>
 
       <div class="secure">
-        <i class="fa-solid fa-shield"></i>  
-        Secure Payments with 128-bit encryption
+        <i class="fa-solid fa-shield"></i>
+        Secure encrypted checkout
       </div>
 
     </div>
 
   </div>
 
-  <ng-template #emptyCart>
-    <div class="empty">
-      <img src="assets/images/empty-cart.png">
-      <h3>Your cart is empty</h3>
-      <p>Looks like you haven't added anything yet.</p>
+  <!-- EMPTY CART -->
+<ng-template #emptyCart>
+  <div class="empty">
+    <app-lottie-section
+      [animationPath]="'assets/animations/empty.json'"
+      [title]="'Your Cart is Empty'"
+      [content]="
+        'Looks like you haven’t added anything yet. \
+        Browse our latest mobiles, laptops, and accessories to get started!'
+      "
+    >
+    </app-lottie-section>
 
-      <button routerLink="/" class="shop-now-btn">Start Shopping</button>
-    </div>
-  </ng-template>
+    <button routerLink="/" class="shop-now-btn">
+      Browse Products
+    </button>
+
+  </div>
+</ng-template>
+
 
 </section>

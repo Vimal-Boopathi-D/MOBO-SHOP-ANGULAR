@@ -1,41 +1,59 @@
 <div class="success-container">
 
-  <!-- TOP SECTION (Order Details) -->
+  <!-- TOP SECTION -->
   <div class="top-section">
 
-    <h2 class="success-title">Order Confirmed!</h2>
+    <div class="success-icon">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+
+    <h2 class="success-title">Order Confirmed</h2>
+
     <p class="success-sub">
-      Thank you for your purchase. Your order has been successfully placed.
+      Thank you for your purchase. Your order has been successfully placed and is now being processed.
     </p>
 
+    <!-- Order summary -->
     <div class="order-box">
+      <h3 class="box-title">Order Details</h3>
+
       <div class="row">
         <span>Order ID</span>
         <strong>#{{ orderId }}</strong>
       </div>
 
       <div class="row">
-        <span>Payment Status</span>
-        <strong class="green">Successful</strong>
+        <span>Payment</span>
+        <strong class="green">{{ paymentMethod }}</strong>
       </div>
 
       <div class="row">
-        <span>Delivery Estimate</span>
-        <strong>3–5 Business Days</strong>
+        <span>Estimated Delivery</span>
+        <strong>3 – 5 Business Days</strong>
       </div>
     </div>
 
-  </div>
-
-  <!-- BOTTOM GREEN SECTION -->
-  <div class="bottom-section">
-    <div class="check-wrapper">
-      <div class="tick"></div>
+    <!-- Next Steps -->
+    <div class="next-steps">
+      <h4>Next Steps</h4>
+      <ul>
+        <li><i class="fa-solid fa-box-open"></i> Your order is being prepared</li>
+        <li><i class="fa-solid fa-truck"></i> Tracking details will be shared soon</li>
+        <li><i class="fa-solid fa-envelope"></i> A confirmation email has been sent to you</li>
+      </ul>
     </div>
-
-    <button routerLink="/products" class="continue-btn">
-      Continue Shopping →
-    </button>
   </div>
 
+  <!-- Bottom Section -->
+  <div class="bottom-section">
+
+    <button class="continue-btn" (click)="continueShopping()">
+      Continue Shopping
+    </button>
+
+    <p class="support-text">
+      Need help? Our support team is available 24/7 — <strong>support@moboshop.com</strong>
+    </p>
+
+  </div>
 </div>

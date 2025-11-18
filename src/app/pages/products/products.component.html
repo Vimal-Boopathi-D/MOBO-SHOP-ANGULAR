@@ -44,19 +44,23 @@
     </button>
   </div>
 
-  <div class="drawer-items">
-    <div class="drawer-item" *ngFor="let item of cart.cartItems()">
-      <img [src]="item.img" />
-      <div class="info">
-        <h4>{{ item.name }}</h4>
-        <p>Qty: {{ item.qty }}</p>
-        <span>₹{{ item.price * item.qty }}</span>
-      </div>
+<div class="drawer-items">
+  <div class="drawer-item" *ngFor="let item of cart.cartItems()">
+    <img [src]="item.img" />
+    <div class="info">
+      <h4>{{ item.name }}</h4>
+      <p>Qty: {{ item.qty }}</p>
+      <span class="price">₹{{ item.price * item.qty }}</span>
     </div>
   </div>
+</div>
+
+
 
   <div class="drawer-footer">
     <h3>Total: ₹{{ cart.totalPrice() }}</h3>
-    <button class="checkout-btn" routerLink="/cart">Go to Cart</button>
+<button class="checkout-btn" routerLink="/cart">
+  Go to Cart
+</button>
   </div>
 </div>
