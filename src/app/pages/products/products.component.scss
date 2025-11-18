@@ -463,11 +463,14 @@
 }
 
 /* ============================================================
-   📱 FIXED + CLEAN MOBILE / TABLET RESPONSIVE
-   Perfect 2-cards layout with equal card heights
+   📱 PERFECT RESPONSIVE PRODUCT CARD LAYOUT
+   – Equal Heights
+   – Aligned Buttons
+   – Consistent Design
    ============================================================ */
 
-/* ---------- Tablet (max-width: 768px) ---------- */
+
+/* ------------------- TABLETS (max-width: 768px) ------------------- */
 @media (max-width: 768px) {
 
   .products-grid {
@@ -477,6 +480,10 @@
 
   .product-card {
     padding: 1rem;
+    height: 350px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .product-card .image-box {
@@ -486,16 +493,21 @@
   .product-card h3 {
     font-size: 1rem;
     min-height: 36px;
+    max-height: 36px;
+    overflow: hidden;
   }
 
   .product-card .desc {
     font-size: 0.82rem;
     min-height: 32px;
+    max-height: 32px;
+    overflow: hidden;
   }
 }
 
 
-/* ---------- Small Mobile (max-width: 480px) ---------- */
+
+/* ------------------- MOBILE (max-width: 480px) ------------------- */
 @media (max-width: 480px) {
 
   .products-grid {
@@ -503,7 +515,6 @@
     gap: 0.9rem;
   }
 
-  /* ⭐ FIXED CARD HEIGHT — PERFECT ALIGNMENT */
   .product-card {
     padding: 0.9rem;
     border-radius: 12px;
@@ -519,12 +530,16 @@
 
   .product-card h3 {
     font-size: 0.95rem;
-    min-height: 38px;
+    min-height: 36px;
+    max-height: 36px;
+    overflow: hidden;
   }
 
   .product-card .desc {
-    min-height: 30px;
     font-size: 0.78rem;
+    min-height: 30px;
+    max-height: 30px;
+    overflow: hidden;
   }
 
   .product-card .add-btn {
@@ -534,7 +549,8 @@
 }
 
 
-/* ---------- Ultra Small Phones (max-width: 360px) ---------- */
+
+/* ------------------- ULTRA SMALL (max-width: 360px) ------------------- */
 @media (max-width: 360px) {
 
   .products-grid {
