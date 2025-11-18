@@ -3,7 +3,7 @@
   border: 1px solid #efefef;
   border-radius: 16px;
   padding: 1rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   transition: 0.3s ease;
   position: relative;
 
@@ -14,7 +14,7 @@
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.12);
   }
 
   /* DISCOUNT BADGE */
@@ -137,7 +137,7 @@
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 16px rgba(255, 122, 26, 0.3);
+      box-shadow: 0 6px 16px rgba(255,122,26,0.3);
     }
   }
 }
@@ -146,6 +146,7 @@
    📱 Perfect Mobile Fix
    ============================ */
 @media (max-width: 480px) {
+
   .product-card {
     height: 330px !important;
     padding: 0.9rem;
