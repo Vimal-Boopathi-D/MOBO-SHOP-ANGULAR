@@ -12,7 +12,3 @@ html, body {
   overflow-x: hidden; // prevent horizontal scroll
 }
 
-/* Optional: fix any full-width elements */
-body > :not(script) {
-  max-width: 100vw;
-}
