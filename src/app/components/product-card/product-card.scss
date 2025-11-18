@@ -6,16 +6,17 @@
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   transition: 0.3s ease;
   position: relative;
-
   display: flex;
   flex-direction: column;
+
+  width: 100%;
+  box-sizing: border-box;
 
   &:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 26px rgba(0,0,0,0.12);
   }
 
-  /* Discount Badge */
   .discount {
     position: absolute;
     background: #ff3b30;
@@ -28,9 +29,9 @@
     z-index: 3;
   }
 
-  /* IMAGE */
   .image-box {
-    height: 180px; /* smaller for equal height */
+    height: 180px;
+    max-height: 180px;       /* 👈 allows mobile override */
     overflow: hidden;
     border-radius: 12px;
     margin-bottom: 0.8rem;
@@ -47,26 +48,23 @@
     }
   }
 
-  /* TITLE */
   h3 {
     font-size: 1.1rem;
     font-weight: 700;
     color: #222;
-    min-height: 42px; /* tighter height */
+    min-height: 42px;
     margin: 0 0 4px;
     line-height: 1.3;
   }
 
-  /* DESCRIPTION */
   .desc {
     font-size: 0.85rem;
     color: #666;
-    min-height: 32px; /* equal height */
+    min-height: 32px;
     line-height: 1.35;
     margin-bottom: 6px;
   }
 
-  /* RATING */
   .rating-soft {
     display: inline-flex;
     align-items: center;
@@ -80,7 +78,6 @@
     }
   }
 
-  /* PRICE */
   .price {
     display: flex;
     align-items: center;
@@ -100,9 +97,8 @@
     }
   }
 
-  /* BUTTON */
   .add-btn {
-    margin-top: auto; /* pushes button to bottom */
+    margin-top: auto;
     width: 100%;
     padding: 0.75rem;
     font-size: 0.9rem;
