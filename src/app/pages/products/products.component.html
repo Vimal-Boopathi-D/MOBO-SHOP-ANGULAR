@@ -37,12 +37,17 @@
 <!-- CART DRAWER -->
 <div class="cart-drawer" [class.open]="drawerOpen()">
 
-  <div class="drawer-header">
+<div class="drawer-header">
+  <div class="title-row">
+    <i class="fa-solid fa-bag-shopping header-icon"></i>
     <h3>Your Cart</h3>
-    <button (click)="closeCartDrawer()">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
   </div>
+
+  <button (click)="closeCartDrawer()">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+</div>
+
 
 <div class="drawer-items">
   <div class="drawer-item" *ngFor="let item of cart.cartItems()">
