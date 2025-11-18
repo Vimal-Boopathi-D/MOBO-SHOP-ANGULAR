@@ -5,6 +5,63 @@
   margin: 0;
 }
 
+/* ULTRA PREMIUM PAGE TITLE */
+.page-title {
+  margin-top: 3rem;
+  text-align: center;
+
+  font-size: 2.6rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+
+  background: linear-gradient(90deg, #1a1a1b, #101113, #0f0f13);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  display: block; 
+  width: 100%;      
+
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 3rem;
+
+  animation: fadeDown 0.7s ease-out;
+}
+
+
+/* Underline Glow */
+.page-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 120px;
+  height: 4px;
+  border-radius: 9999px;
+
+  background: linear-gradient(90deg, #ff7a1a, #ff3d54, #6a5cff);
+  transform: translateX(-50%);
+
+  box-shadow: 
+    0 4px 12px rgba(255, 122, 26, 0.35),
+    0 0 10px rgba(106, 92, 255, 0.4);
+
+  animation: underlineGlow 3s ease infinite;
+}
+
+/* Soft Fade Animation */
+@keyframes fadeDown {
+  0% { opacity: 0; transform: translateY(-12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Underline flowing effect */
+@keyframes underlineGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
 /* CATEGORY FILTERS */
 .categories {
