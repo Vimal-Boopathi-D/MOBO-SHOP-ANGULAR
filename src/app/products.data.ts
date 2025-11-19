@@ -28,13 +28,13 @@ export const PRODUCTS_DATA = [
     img: 'https://m.media-amazon.com/images/I/71VW8LmqqPL._SL1500_.jpg'
   },
   {
-    name: 'Oppo Reno 10',
+    name: 'Telephoto Lens',
     category: 'Brand New Mobiles',
     price: 32000,
     discount: 10,
     rating: 4.4,
     desc: 'Telephoto Lens · 256GB Storage · 67W Fast Charge',
-    img: 'https://m.media-amazon.com/images/I/71QVZKb6k2L._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/71y1BxNPtpL._AC_UY218_.jpg'
   },
   {
     name: 'Vivo V29',
@@ -63,7 +63,7 @@ export const PRODUCTS_DATA = [
     discount: 18,
     rating: 4.1,
     desc: 'Super AMOLED · 64MP Camera · Minor Scratches',
-    img: 'https://m.media-amazon.com/images/I/71ZVQYdSifL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/81lnD9tynQL._AC_UY218_.jpg'
   },
 
   // ---------------- Brand New Laptops ----------------
@@ -112,7 +112,7 @@ export const PRODUCTS_DATA = [
     discount: 15,
     rating: 4.3,
     desc: 'Intel i5 8th Gen · 8GB RAM · 256GB SSD',
-    img: 'https://m.media-amazon.com/images/I/61b87UQ4RHL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/41aX3cl4hdL._AC_UY218_.jpg'
   },
   {
     name: 'HP EliteBook 840 G5 (Used)',
@@ -121,7 +121,7 @@ export const PRODUCTS_DATA = [
     discount: 10,
     rating: 4.4,
     desc: 'Intel i5 · Slim Body · Very Good Condition',
-    img: 'https://m.media-amazon.com/images/I/71R2LB+RPxL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/71Z4mSII9BL._AC_UY218_.jpg'
   },
 
   // ---------------- Accessories: Cases ----------------
@@ -161,7 +161,7 @@ export const PRODUCTS_DATA = [
     discount: 15,
     rating: 4.7,
     desc: 'USB-C Super Fast Charging',
-    img: 'https://m.media-amazon.com/images/I/71-Su4Wr0qL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/71iE0YTRqzL._AC_UY218_.jpg'
   },
   {
     name: 'Apple 20W USB-C Adapter',
@@ -179,7 +179,7 @@ export const PRODUCTS_DATA = [
     discount: 35,
     rating: 4.4,
     desc: 'Dual Port · Smart IC · Fast Charge',
-    img: 'https://m.media-amazon.com/images/I/61r43BvxKOL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/71OPy1mcyvL._AC_UY218_.jpg'
   },
 
   // ---------------- Accessories: Earphones/Airpods ----------------
@@ -219,7 +219,7 @@ export const PRODUCTS_DATA = [
     discount: 20,
     rating: 4.7,
     desc: 'Portable Speaker · IP67 Waterproof · Punchy Bass',
-    img: 'https://m.media-amazon.com/images/I/71eQh1fishL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/51+w+eT6aAL._AC_UY218_.jpg'
   },
   {
     name: 'Boat Stone 650',
@@ -228,7 +228,7 @@ export const PRODUCTS_DATA = [
     discount: 25,
     rating: 4.6,
     desc: '10W RMS · Deep Bass · Water Resistant',
-    img: 'https://m.media-amazon.com/images/I/81Wim0N4ZEL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/31Bhovx2xQL._AC_UY218_.jpg'
   },
   {
     name: 'Sony SRS-XB13',
@@ -266,7 +266,7 @@ export const PRODUCTS_DATA = [
     discount: 18,
     rating: 4.7,
     desc: 'Portable · High-Speed',
-    img: 'https://m.media-amazon.com/images/I/61VDfW3GLvL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/51jTZLqwCTL._AC_UY218_.jpg'
   },
 
   // ---------------- Memory Cards ----------------
@@ -286,7 +286,7 @@ export const PRODUCTS_DATA = [
     discount: 28,
     rating: 4.6,
     desc: 'Full HD · A1 · 100MB/s',
-    img: 'https://m.media-amazon.com/images/I/71JXbnw4wcL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/51JVcTNWKqL._AC_UY218_.jpg'
   },
 
   // ---------------- Car Accessories ----------------
@@ -297,7 +297,7 @@ export const PRODUCTS_DATA = [
     discount: 30,
     rating: 4.5,
     desc: 'Dashboard Mount · Strong Grip',
-    img: 'https://m.media-amazon.com/images/I/71w1rKgkkhL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/613ucWATzdL._AC_UY218_.jpg'
   },
   {
     name: 'Car Bluetooth Receiver',
@@ -315,7 +315,7 @@ export const PRODUCTS_DATA = [
     discount: 20,
     rating: 4.7,
     desc: 'Dual Port · QC3.0 Support',
-    img: 'https://m.media-amazon.com/images/I/61gCfx9x7KL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/61RbyZuzMtL._AC_UY218_.jpg'
   },
 
   // ---------------- Smart Gadgets ----------------
@@ -335,7 +335,7 @@ export const PRODUCTS_DATA = [
     discount: 25,
     rating: 4.3,
     desc: 'Anti-Lost · App Control',
-    img: 'https://m.media-amazon.com/images/I/61uLxRZ6xNL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/51G6raZr0oL._AC_UY218_.jpg'
   },
   {
     name: 'Mini Phone Tripod Stand',
@@ -344,7 +344,7 @@ export const PRODUCTS_DATA = [
     discount: 35,
     rating: 4.2,
     desc: 'Flexible Legs · Universal Holder',
-    img: 'https://m.media-amazon.com/images/I/71eiC5Yy5hL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/51JPq-QL3EL._AC_UY218_.jpg'
   },
   {
     name: 'iPhone 14 Pro',
@@ -431,7 +431,7 @@ export const PRODUCTS_DATA = [
     discount: 15,
     rating: 4.2,
     desc: 'i7 8th Gen · 16GB RAM · Business Laptop',
-    img: 'https://m.media-amazon.com/images/I/71gJRBbl5jL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/712WiT-wexL._AC_UY218_.jpg'
   },
   {
     name: 'MacBook Air 2017 (Used)',
@@ -480,7 +480,7 @@ export const PRODUCTS_DATA = [
     discount: 14,
     rating: 4.8,
     desc: 'Powerful Bass · IP67 Waterproof · PartyBoost',
-    img: 'https://m.media-amazon.com/images/I/71g9RgH2ISR._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/71N8si9jomL._AC_UY218_.jpg'
   },
   {
     name: 'Boat Stone 350',
@@ -500,7 +500,7 @@ export const PRODUCTS_DATA = [
     discount: 25,
     rating: 4.6,
     desc: 'Premium Silicone · MagSafe Compatible',
-    img: 'https://m.media-amazon.com/images/I/71cZsRMb2PL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/61JvqNmEjyL._AC_UY218_.jpg'
   },
   {
     name: 'OnePlus 9R Bumper Case',
@@ -509,7 +509,7 @@ export const PRODUCTS_DATA = [
     discount: 30,
     rating: 4.3,
     desc: 'Shock Absorbing · Matte Finish',
-    img: 'https://m.media-amazon.com/images/I/51Bnxo7BqBL._SL1000_.jpg'
+    img: 'https://m.media-amazon.com/images/I/71Yt-869PfS._AC_UY218_.jpg'
   },
 
   // ---------------- Smart Gadgets ----------------
@@ -529,7 +529,7 @@ export const PRODUCTS_DATA = [
     discount: 28,
     rating: 4.4,
     desc: 'Voice Control · Energy Monitoring',
-    img: 'https://m.media-amazon.com/images/I/5158uO3nQkL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/61GRHX4pTaL._AC_UL320_.jpg'
   },
 
   // ---------------- Car Accessories ----------------
@@ -569,7 +569,7 @@ export const PRODUCTS_DATA = [
     discount: 25,
     rating: 4.7,
     desc: 'A1 · Full HD · High Speed',
-    img: 'https://m.media-amazon.com/images/I/81bTiMl5nNL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/514S7qp9fOL._AC_UL320_.jpg'
   }
 
  ];

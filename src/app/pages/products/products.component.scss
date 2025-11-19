@@ -653,3 +653,84 @@ h3{
     height: 130px !important;
   }
 }
+
+/* ============================
+   TRUE SLIM OUTER GRADIENT BORDER
+   ============================ */
+
+.search-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1.8rem 0 0.5rem;
+}
+
+/* Outer animated border wrapper */
+.search-border {
+  position: relative;
+  padding: 2px; /* border thickness */
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    #ff7a1a,
+    #ff3d54,
+    #6a5cff,
+    #2dd4bf,
+    #ff7a1a
+  );
+  background-size: 400% 400%;
+  animation: borderMove 6s linear infinite;
+}
+
+/* Actual search box (pure white inside, no gradient) */
+.search-box {
+  background: #ffffff;
+  border-radius: 16px;
+
+  width: 100%;
+  max-width: 520px;
+
+  padding: 0.9rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Icon */
+.search-box i {
+  font-size: 1.15rem;
+  color: #4b5563;
+}
+
+/* Input */
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111;
+}
+
+/* Animation */
+@keyframes borderMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .search-box {
+    padding: 0.8rem 1rem;
+    border-radius: 14px;
+  }
+
+  .search-border {
+    border-radius: 16px;
+  }
+}

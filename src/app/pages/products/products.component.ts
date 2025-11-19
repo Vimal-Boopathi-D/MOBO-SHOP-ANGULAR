@@ -39,6 +39,13 @@ export class ProductsComponent {
     this.setupStickyScroll();
   }
 
+  searchText = signal("");
+
+  onSearch(event: any) {
+  this.searchText.set(event.target.value.toLowerCase());
+}
+
+
   shuffleProducts() {
     this.products = this.products
       .map(item => ({ ...item, random: Math.random() }))
@@ -48,10 +55,23 @@ export class ProductsComponent {
 
   selectedCategory = signal('All');
 
-  filteredProducts = computed(() => {
-    if (this.selectedCategory() === 'All') return this.products;
-    return this.products.filter(p => p.category === this.selectedCategory());
-  });
+filteredProducts = computed(() => {
+  let list = this.products;
+
+  if (this.selectedCategory() !== 'All') {
+    list = list.filter(p => p.category === this.selectedCategory());
+  }
+
+  if (this.searchText()) {
+    list = list.filter(p =>
+      p.name.toLowerCase().includes(this.searchText()) ||
+      p.desc.toLowerCase().includes(this.searchText())
+    );
+  }
+
+  return list;
+});
+
 
   selectCategory(cat: string) {
     this.selectedCategory.set(cat);

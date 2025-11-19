@@ -1,5 +1,30 @@
 <div class="nav-bg-fix-dark"></div>
 <div style="height: 70px"></div>
+
+<div 
+  class="toast-container"
+  *ngIf="showToastBar"
+  [class.error]="toastType === 'error'"
+  [class.success]="toastType === 'success'"
+>
+  
+  <div class="toast-content">
+    <i 
+      class="fa-solid" 
+      [ngClass]="{
+        'fa-circle-xmark': toastType === 'error',
+        'fa-circle-check': toastType === 'success'
+      }">
+    </i>
+
+    <span>{{ toastMessage }}</span>
+  </div>
+
+  <div class="toast-timer"></div>
+</div>
+
+
+
 <section class="checkout">
   <h2 class="checkout-title">Secure Checkout</h2>
 

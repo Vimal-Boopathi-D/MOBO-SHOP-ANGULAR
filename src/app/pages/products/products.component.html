@@ -27,6 +27,22 @@
     </button>
   </div>
 
+  <!-- SEARCH BAR -->
+<div class="search-wrapper">
+  <div class="search-border">
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input 
+        type="text" 
+        placeholder="Search products..." 
+        (input)="onSearch($event)"
+      />
+    </div>
+  </div>
+</div>
+
+
+
   <div class="products-grid">
     <app-product-card
       *ngFor="let p of filteredProducts()"

@@ -848,3 +848,90 @@ input:checked + .content::before {
     font-size: 0.88rem;
   }
 }
+
+/* ========================
+   ULTRA PREMIUM TOAST
+   ======================== */
+
+.toast-container {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  width: 340px;                /* Wider */
+  padding: 16px 20px;
+  border-radius: 16px;
+
+  background: #ffffff;
+  backdrop-filter: blur(12px);
+
+  box-shadow: 
+    0 6px 25px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(255,255,255,0.4) inset;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  animation: toastSlideIn 0.45s ease-out;
+  z-index: 6000;
+
+  border-left: 4px solid transparent;
+}
+
+/* Gradient border line */
+.toast-container.success {
+  border-left-color: #1e3c72; /* subtle royal */
+}
+.toast-container.error {
+  border-left-color: #5c2d91; /* luxury purple */
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.toast-content i {
+  font-size: 1.4rem;
+  color: #1e3c72; /* royal navy */
+}
+
+/* For error icon */
+.toast-container.error .toast-content i {
+  color: #5c2d91; 
+}
+
+/* Shrinking bottom timer bar */
+.toast-timer {
+  width: 100%;
+  height: 4px;
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, #1e3c72, #2a5298, #2dd4bf);
+  animation: shrinkBar 5s linear forwards;
+}
+
+/* Slide-in animation */
+@keyframes toastSlideIn {
+  from { transform: translateX(120%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+/* Timer shrink animation */
+@keyframes shrinkBar {
+  from { width: 100%; }
+  to   { width: 0%; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .toast-container {
+    width: 92%;
+    right: 4%;
+  }
+}
+
