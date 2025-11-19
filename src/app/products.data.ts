@@ -43,7 +43,7 @@ export const PRODUCTS_DATA = [
     discount: 11,
     rating: 4.5,
     desc: 'Aura Light · 50MP Selfie · AMOLED',
-    img: 'https://m.media-amazon.com/images/I/61ccL5-m4WL._SL1200_.jpg'
+    img: 'https://m.media-amazon.com/images/I/61Rw4Bko2BL._SY550_.jpg'
   },
 
   // ---------------- Second Hand Mobiles ----------------
@@ -83,7 +83,7 @@ export const PRODUCTS_DATA = [
     discount: 15,
     rating: 4.4,
     desc: '2-in-1 Touch · 16GB RAM · 512GB SSD',
-    img: 'https://m.media-amazon.com/images/I/71fjxk+0PeL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/71Go8vTBwXL._AC_UY218_.jpg'
   },
   {
     name: 'Asus VivoBook 14',
@@ -199,7 +199,7 @@ export const PRODUCTS_DATA = [
     discount: 40,
     rating: 4.3,
     desc: 'Bass Boost · 40H Backup · Fast Pair',
-    img: 'https://m.media-amazon.com/images/I/61yyqbqvPAL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/61QeGcag85L._AC_UY218_.jpg'
   },
   {
     name: 'Sony WF-1000XM4',
@@ -237,7 +237,7 @@ export const PRODUCTS_DATA = [
     discount: 18,
     rating: 4.8,
     desc: 'Extra Bass · Type-C · Portable',
-    img: 'https://m.media-amazon.com/images/I/71xw4yYVbbL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/61C1YkP5lzL._AC_UY218_.jpg'
   },
 
   // ---------------- USB Drives ----------------
@@ -257,7 +257,7 @@ export const PRODUCTS_DATA = [
     discount: 30,
     rating: 4.5,
     desc: 'Ultra Fast · Waterproof',
-    img: 'https://m.media-amazon.com/images/I/61l9ppRIiqL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/41ZNNrUWe+L._AC_UY218_.jpg'
   },
   {
     name: 'Samsung 128GB USB Type-C Drive',
@@ -277,7 +277,7 @@ export const PRODUCTS_DATA = [
     discount: 25,
     rating: 4.8,
     desc: '4K Video · A2 Rated · Waterproof',
-    img: 'https://m.media-amazon.com/images/I/91ebvPUJgLL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/61fkOHNmzpL._AC_UY218_.jpg'
   },
   {
     name: 'SanDisk 64GB Class 10',
@@ -306,7 +306,7 @@ export const PRODUCTS_DATA = [
     discount: 35,
     rating: 4.4,
     desc: 'AUX Input · HD Sound',
-    img: 'https://m.media-amazon.com/images/I/61PG0bnIPSL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/61QKhSQvfrL._AC_UY218_.jpg'
   },
   {
     name: 'Car Fast Charger 36W',
@@ -326,7 +326,7 @@ export const PRODUCTS_DATA = [
     discount: 30,
     rating: 4.6,
     desc: 'RGB · WiFi Control · Music Sync',
-    img: 'https://m.media-amazon.com/images/I/71ck1wZCJoL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/51Mjx+7CQ1L._AC_UL320_.jpg'
   },
   {
     name: 'Smart Bluetooth Tracker',
@@ -371,7 +371,7 @@ export const PRODUCTS_DATA = [
     discount: 10,
     rating: 4.6,
     desc: '240W Fast Charge · Snapdragon 8+ Gen 1',
-    img: 'https://m.media-amazon.com/images/I/71eUw5UP5LL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/51973rPxV9L._AC_UY218_.jpg'
   },
 
   // ---------------- Second Hand Mobiles ----------------
@@ -440,7 +440,7 @@ export const PRODUCTS_DATA = [
     discount: 18,
     rating: 4.4,
     desc: '8GB RAM · 256GB SSD · Very Good Condition',
-    img: 'https://m.media-amazon.com/images/I/81QPdU8l5NL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/71WjZraleiL._AC_UY218_.jpg'
   },
 
   // ---------------- Premium Accessories ----------------
@@ -451,7 +451,7 @@ export const PRODUCTS_DATA = [
     discount: 30,
     rating: 4.5,
     desc: '150H Battery · Type-C Fast Charging',
-    img: 'https://m.media-amazon.com/images/I/61MqqVlpIIL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/614gbl-O98L._AC_UY218_.jpg'
   },
   {
     name: 'Sony WH-1000XM4',
@@ -489,7 +489,7 @@ export const PRODUCTS_DATA = [
     discount: 35,
     rating: 4.4,
     desc: '10W RMS · Water Resistant · Portable',
-    img: 'https://m.media-amazon.com/images/I/81Wim0N4ZEL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/71o6CU8MqVL._AC_UY218_.jpg'
   },
 
   // ---------------- Mobile Cases ----------------
@@ -520,7 +520,7 @@ export const PRODUCTS_DATA = [
     discount: 22,
     rating: 4.5,
     desc: 'AMOLED · Spo₂ · 120 Sports Modes',
-    img: 'https://m.media-amazon.com/images/I/61b3pXQ7gOL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/61-PhP53C2L._AC_UL320_.jpg'
   },
   {
     name: 'Realme Smart Plug WiFi',
@@ -540,7 +540,7 @@ export const PRODUCTS_DATA = [
     discount: 40,
     rating: 4.2,
     desc: 'Anti-slip · 360° Rotation',
-    img: 'https://m.media-amazon.com/images/I/71Y1reFsmdL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/41H7NUu+b4L._AC_UY218_.jpg'
   },
   {
     name: 'Car Tire Inflator (Electric)',
@@ -549,7 +549,7 @@ export const PRODUCTS_DATA = [
     discount: 20,
     rating: 4.6,
     desc: 'Digital Display · Auto Cutoff',
-    img: 'https://m.media-amazon.com/images/I/61uGZ56B9qL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/71qGd1Mn3iL._AC_UL320_.jpg'
   },
 
   // ---------------- Storage Devices ----------------
@@ -560,7 +560,7 @@ export const PRODUCTS_DATA = [
     discount: 22,
     rating: 4.9,
     desc: '3500MB/s Read · PCIe 3.0',
-    img: 'https://m.media-amazon.com/images/I/61U7T1koQCL._SL1500_.jpg'
+    img: 'https://m.media-amazon.com/images/I/71H3OVkHOGL._AC_UY218_.jpg '
   },
   {
     name: 'SanDisk 128GB Ultra MicroSD',
