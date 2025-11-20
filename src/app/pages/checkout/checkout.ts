@@ -71,9 +71,35 @@ export class CheckoutComponent {
         status: 'COD',
       };
 
-      this.postOrderToSheet(payload).then(() => {
-        this.showToast('Order Placed Successfully', 'success');
+      this.postOrderToSheet(payload).then((response: any) => {
+        if (response?.orderId) localStorage.setItem('last_order_id', response.orderId);
+        if (response?.invoiceLink) localStorage.setItem('last_invoice_link', response.invoiceLink);
+
+        // Save customer
+        localStorage.setItem(
+          'last_customer',
+          JSON.stringify({ name, phone, address, city, pincode })
+        );
+
+        // 🔥 Save items WITH qty
+        localStorage.setItem(
+          'last_items',
+          JSON.stringify(
+            this.cart.cartItems().map((i) => ({
+              name: i.name,
+              price: i.price,
+              qty: i.qty,
+            }))
+          )
+        );
+
+        // Save amount
+        localStorage.setItem('last_amount', this.cart.totalPrice().toString());
+
+        // Clear cart
         this.cart.clearCart();
+
+        this.showToast('Order Placed Successfully', 'success');
         this.showSuccessModal = true;
       });
 
@@ -105,10 +131,38 @@ export class CheckoutComponent {
           status: 'Paid',
         };
 
-        this.postOrderToSheet(payload).then(() => {
+        this.postOrderToSheet(payload).then((response: any) => {
           this.ngZone.run(() => {
-            this.showToast('Payment Successful', 'success');
+            // Save order
+            if (response?.orderId) localStorage.setItem('last_order_id', response.orderId);
+            if (response?.invoiceLink)
+              localStorage.setItem('last_invoice_link', response.invoiceLink);
+
+            // Save customer details
+            localStorage.setItem(
+              'last_customer',
+              JSON.stringify({ name, phone, address, city, pincode })
+            );
+
+            // 🔥 Save items WITH qty
+            localStorage.setItem(
+              'last_items',
+              JSON.stringify(
+                this.cart.cartItems().map((i) => ({
+                  name: i.name,
+                  price: i.price,
+                  qty: i.qty,
+                }))
+              )
+            );
+
+            // Save total
+            localStorage.setItem('last_amount', this.cart.totalPrice().toString());
+
+            // Clear cart
             this.cart.clearCart();
+
+            this.showToast('Payment Successful', 'success');
             this.showSuccessModal = true;
           });
         });
@@ -126,30 +180,26 @@ export class CheckoutComponent {
     };
 
     const rzp = new Razorpay(options);
-    // rzp.on('payment.failed', (resp: any) => {
-    //   this.showToast(resp.error?.description || 'Payment Failed. Please try again.', 'error');
-    // });
-
     rzp.open();
   }
 
-  // FINAL WORKING VERSION (NO-CORS)
   private async postOrderToSheet(payload: any) {
     const APPS_SCRIPT_URL =
-      'https://script.google.com/macros/s/AKfycbyUO-dCWFTEtx6HlyHDfkjH0I-x1aMA27q7gCaf6Dqt81Bh6KpqPIQ8jOtLTmG_qOm8Jg/exec';
+      'https://script.google.com/macros/s/AKfycbzg9U-pxVw6nZdRYG-8HCMQXBpuSIoYClrr9P3OdlS-HoUORWYaRy-zlglkHXyT4J0xAg/exec';
 
-    // CORS bypass mode
     await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
-      mode: 'no-cors', // ⬅ IMPORTANT FIX
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      mode: 'no-cors', // IMPORTANT
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
 
-    // no-cors returns an empty response → we return true always
-    return true;
+    // Browser cannot read the real JSON because of CORS
+    return {
+      success: true,
+      orderId: 'TEMP-' + Date.now(),
+      invoiceLink: '', // browser cannot get Drive link
+    };
   }
 
   closeSuccess() {

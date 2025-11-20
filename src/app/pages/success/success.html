@@ -14,24 +14,31 @@
     </p>
 
     <!-- Order summary -->
-    <div class="order-box">
-      <h3 class="box-title">Order Details</h3>
+<div class="order-box">
+  <h3 class="box-title">Order Details</h3>
 
-      <div class="row">
-        <span>Order ID</span>
-        <strong>#{{ orderId }}</strong>
-      </div>
+  <div class="row">
+    <span>Order ID</span>
+    <strong>#{{ orderId }}</strong>
+  </div>
 
-      <div class="row">
-        <span>Payment</span>
-        <strong class="green">{{ paymentMethod }}</strong>
-      </div>
+  <div class="row">
+    <span>Payment</span>
+    <strong class="green">{{ paymentMethod }}</strong>
+  </div>
 
-      <div class="row">
-        <span>Estimated Delivery</span>
-        <strong>3 – 5 Business Days</strong>
-      </div>
-    </div>
+<div class="row">
+  <span>Invoice</span>
+  <a (click)="downloadInvoice()" class="invoice-btn">Download PDF</a>
+</div>
+
+
+  <div class="row">
+    <span>Estimated Delivery</span>
+    <strong>3 – 5 Business Days</strong>
+  </div>
+</div>
+
 
     <!-- Next Steps -->
     <div class="next-steps">
