@@ -22,7 +22,7 @@ export class HeroSliderComponent implements OnInit {
     },
     {
       img: 'assets/images/third-slide.jpg',
-      title: 'CCTV Installation',
+      title: 'CCTV Installation & Setup',
       subtitle: 'Secure your home and office'
     }
   ];

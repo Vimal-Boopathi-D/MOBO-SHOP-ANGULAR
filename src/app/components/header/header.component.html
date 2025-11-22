@@ -1,34 +1,37 @@
-<nav 
-  [class.scrolled]="isScrolled()" 
-  [class.dark-nav]="darkNav()" 
-  class="header-nav">
-
+<nav [class.scrolled]="isScrolled()" [class.dark-nav]="darkNav()" class="header-nav">
+  <!-- LOGO -->
   <div class="logo">Mobo Shop</div>
-
-  <div class="hamburger" (click)="menuOpen = !menuOpen">
-    <span></span><span></span><span></span>
-  </div>
-
-  <ul class="nav-links" [class.open]="menuOpen">
-    <li><a routerLink="/" (click)="menuOpen=false">Home</a></li>
-    <li><a routerLink="/products" (click)="menuOpen=false">Products</a></li>
-
-    <li 
-      class="dropdown"
-      [class.open]="dropdownOpen"
-      (click)="dropdownOpen = !dropdownOpen">
-      
+  <!-- DESKTOP NAV -->
+  <ul class="nav-links desktop-only">
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/products">Products</a></li>
+    <li class="dropdown">
       <a href="javascript:void(0)">Services</a>
-
       <ul class="dropdown-menu">
-        <li><a routerLink="/services" (click)="menuOpen=false">Mobile Services</a></li>
-        <li><a routerLink="/services/laptop" (click)="menuOpen=false">Laptop Services</a></li>
-        <li><a routerLink="/services/cctv" (click)="menuOpen=false">CCTV Installation</a></li>
+        <li><a routerLink="/services">Mobile Services</a></li>
+        <li><a routerLink="/services/laptop">Laptop Services</a></li>
+        <li><a routerLink="/services/cctv">CCTV Installation</a></li>
       </ul>
-
     </li>
-
-    <li><a routerLink="/contact" (click)="menuOpen=false">Contact</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
   </ul>
-
+  <!-- Mobile toggle button stays INSIDE nav -->
+  <!-- <div class="mobile-float-btn mobile-only" (click)="menuOpen = !menuOpen">
+    <i class="ri-menu-3-line" *ngIf="!menuOpen"></i> <i class="ri-close-line" *ngIf="menuOpen"></i>
+  </div> -->
 </nav>
+<!-- MOBILE FLOATING ICON NAV (MOVING OUTSIDE NAV!) -->
+<div class="floating-menu mobile-only" [class.open]="menuOpen">
+  <button routerLink="/" (click)="menuOpen = false">
+    <i class="ri-home-4-line"></i> <span>Home</span>
+  </button>
+  <button routerLink="/products" (click)="menuOpen = false">
+    <i class="ri-shopping-bag-3-line"></i> <span>Products</span>
+  </button>
+  <button routerLink="/services" (click)="menuOpen = false">
+    <i class="ri-tools-line"></i> <span>Services</span>
+  </button>
+  <button routerLink="/contact" (click)="menuOpen = false">
+    <i class="ri-phone-line"></i> <span>Contact</span>
+  </button>
+</div>

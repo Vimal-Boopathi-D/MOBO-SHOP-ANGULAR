@@ -15,3 +15,133 @@ html, body {
 * {
   box-sizing: border-box;
 }
+/* --------------------------------------
+   FLOATING TOGGLE BUTTON (ALL SCREENS)
+--------------------------------------- */
+.mobile-float-btn {
+  position: fixed;
+  top: 55%;                     /* Desktop position */
+  right: 20px;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+
+  background: rgba(85, 71, 71, 0.55);
+  backdrop-filter: blur(14px);
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.mobile-float-btn i {
+  font-size: 1.8rem;
+  color: #fff;
+} /* -------------------------------------- FLOATING MENU (CURVED ARC – ALL SCREENS) --------------------------------------- */
+.floating-menu {
+  position: fixed;
+  top: 65%;
+  right: 40px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.35s ease-out;
+  z-index: 5000;
+}
+.floating-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+} /* Floating buttons */
+.floating-menu button {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background: rgba(85, 71, 71, 0.55);
+  backdrop-filter: blur(14px);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 18px rgba(141, 117, 117, 0.25);
+  opacity: 0;
+  transform: scale(0.1);
+  transition: 0.4s ease;
+}
+.floating-menu.open button {
+  opacity: 1;
+  transform: scale(1);
+} /* CURVED ARC POSITIONS */
+.floating-menu button:nth-child(1) {
+  transform: translate(-40px, -180px);
+}
+.floating-menu button:nth-child(2) {
+  transform: translate(-115px, -135px); /* smoother arc */
+}
+.floating-menu button:nth-child(3) {
+  transform: translate(-120px, -53px); /* perfect curve below */
+}
+.floating-menu button:nth-child(4) {
+  transform: translate(-40px, -1px);
+}
+.floating-menu:not(.open) button {
+  transform: translate(0, 0) scale(0.1);
+  opacity: 0;
+} /* Icons */
+.floating-menu button i {
+  font-size: 1.4rem;
+  color: #fff;
+} /* Hide labels for clean look */
+.floating-menu button span {
+  display: none;
+} /* -------------------------------------- MOBILE RESPONSIVE RULE --------------------------------------- */
+
+
+/* --------------------------------------
+   MOBILE (BOTTOM RIGHT POSITION)
+--------------------------------------- */
+@media (max-width: 768px) {
+  .mobile-float-btn {
+    top: auto;              /* Reset desktop position */
+    bottom: 50px;           /* Move to bottom */
+    right: 25px;            /* Move slightly inward */
+    transform: none;        /* Remove translate */
+  }
+
+  .floating-menu {
+    top: auto;
+    bottom: 100px;          /* Curve upwards from toggle */
+    right: 60px;
+    transform: none;
+  }
+
+  .floating-menu button:nth-child(1) {
+    transform: translate(0px, -110px);   /* Top */
+  }
+
+  .floating-menu button:nth-child(2) {
+    transform: translate(-70px, -90px);  /* Up-left */
+  }
+
+  .floating-menu button:nth-child(3) {
+    transform: translate(-110px, -40px); /* Left-middle */
+  }
+
+  .floating-menu button:nth-child(4) {
+    transform: translate(-130px, 25px);   /* Perfect left */
+  }
+
+  /* collapsed (when closed) */
+  .floating-menu:not(.open) button {
+    transform: translate(0,0) scale(0.1);
+    opacity: 0;
+  }
+}

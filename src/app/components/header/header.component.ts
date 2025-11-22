@@ -12,22 +12,19 @@ import { filter } from 'rxjs/operators';
 export class HeaderComponent {
 
   isScrolled = signal(false);
-  darkNav = signal(false);   // ⭐ automatically switch nav mode
+  darkNav = signal(false);
   menuOpen = false;
   dropdownOpen = false;
 
   constructor(private router: Router) {
-    // Detect page changes to apply dark or transparent navbar
+
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
-        
-        const currentRoute = event.urlAfterRedirects;
 
-        // Pages that should have TRANSPARENT NAVBAR
+        const currentRoute = event.urlAfterRedirects;
         const transparentPages = ['/', '/home'];
 
-        // All other pages = dark navbar
         this.darkNav.set(!transparentPages.includes(currentRoute));
       });
   }
@@ -36,5 +33,4 @@ export class HeaderComponent {
   onWindowScroll() {
     this.isScrolled.set(window.scrollY > 50);
   }
-
 }

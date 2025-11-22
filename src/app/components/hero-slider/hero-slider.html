@@ -1,22 +1,41 @@
 <section class="hero-slider">
-  <div class="slide" *ngFor="let slide of slides; let i = index"
+
+  <div class="slide" 
+       *ngFor="let slide of slides; let i = index"
        [class.active]="i === currentSlide">
+
+    <!-- BACKGROUND -->
     <div class="slide-bg">
-      <img [src]="slide.img" alt="{{slide.title}}">
+      <img [src]="slide.img" alt="{{ slide.title }}">
       <div class="overlay"></div>
     </div>
 
-    <div class="slide-content">
-      <div class="glass-box">
-        <h2>{{slide.title}}</h2>
-        <p>{{slide.subtitle}}</p>
+    <!-- LEFT SIDE CONTENT -->
+    <div class="slide-left">
+      <h1>{{ slide.title }}</h1>
+      <p>{{ slide.subtitle }}</p>
+
+      <div class="btn-row">
+        <button class="primary-btn">
+          <i class="ri-store-2-line"></i> Explore Products
+        </button>
+
+        <button class="secondary-btn">
+          <i class="ri-phone-line"></i> Contact Us
+        </button>
       </div>
     </div>
+
+    <!-- RIGHT SIDE CONTENT (you can customize anything here) -->
+
+
   </div>
 
+  <!-- SLIDER DOTS -->
   <div class="dots">
     <span *ngFor="let slide of slides; let i = index"
           [class.active]="i === currentSlide"
           (click)="goToSlide(i)"></span>
   </div>
+
 </section>

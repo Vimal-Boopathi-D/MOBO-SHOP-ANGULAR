@@ -1,3 +1,32 @@
 <app-header></app-header>
-  <router-outlet></router-outlet>
+
+<router-outlet></router-outlet>
+
+<!-- FLOATING TOGGLE BUTTON -->
+<div class="mobile-float-btn" (click)="menuOpen = !menuOpen">
+  <!-- <i class="ri-menu-3-line" *ngIf="!menuOpen"></i>
+  <i class="ri-close-line" *ngIf="menuOpen"></i> -->
+</div>
+
+<!-- FLOATING CURVED MENU -->
+<div class="floating-menu" [class.open]="menuOpen">
+
+  <button routerLink="/" (click)="menuOpen = false">
+    <i class="ri-home-4-line"></i>
+  </button>
+
+  <button routerLink="/products" (click)="menuOpen = false">
+    <i class="ri-shopping-bag-3-line"></i>
+  </button>
+
+  <button routerLink="/services" (click)="menuOpen = false">
+    <i class="ri-tools-line"></i>
+  </button>
+
+  <button routerLink="/contact" (click)="menuOpen = false">
+    <i class="ri-phone-line"></i>
+  </button>
+
+</div>
+
 <app-footer></app-footer>
