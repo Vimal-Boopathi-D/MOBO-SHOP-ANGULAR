@@ -5,19 +5,21 @@ import { Router } from '@angular/router';
 import { SuccessComponent } from '../success/success';
 import { RouterModule } from '@angular/router';
 import { NgZone } from '@angular/core';
-
+import { LottieSectionComponent } from '../../components/lottie-section/lottie-section';
 declare var Razorpay: any;
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [CommonModule, SuccessComponent, RouterModule],
+  imports: [CommonModule, SuccessComponent, RouterModule,LottieSectionComponent],
   templateUrl: './checkout.html',
   styleUrls: ['./checkout.scss'],
 })
 export class CheckoutComponent {
   showSuccessModal = false;
   paymentMethod: string = 'Paid';
+
+  loading: boolean = false;   // 🔥 Spinner state
 
   constructor(public cart: CartService, public router: Router, private ngZone: NgZone) {}
 
@@ -30,7 +32,6 @@ export class CheckoutComponent {
     this.toastType = type;
     this.showToastBar = true;
 
-    // Auto hide after 5 sec
     setTimeout(() => {
       this.showToastBar = false;
     }, 5000);
@@ -39,10 +40,8 @@ export class CheckoutComponent {
   processPayment() {
     const method = (document.querySelector('input[name="pay"]:checked') as any)?.value;
 
-    // Form data
     const name =
-      (document.querySelector('input[placeholder="John Doe"]') as HTMLInputElement).value ||
-      'Guest';
+      (document.querySelector('input[placeholder="John Doe"]') as HTMLInputElement).value || 'Guest';
     const phone =
       (document.querySelector('input[placeholder="+91 XXXXX XXXXX"]') as HTMLInputElement).value ||
       '';
@@ -54,8 +53,10 @@ export class CheckoutComponent {
     const pincode =
       (document.querySelector('input[placeholder="641001"]') as HTMLInputElement).value || '';
 
-    // CASH ON DELIVERY
+    // ---------------------- CASH ON DELIVERY ----------------------
     if (method === 'cod') {
+      this.loading = true;  // 🔥 Show Spinner
+
       this.paymentMethod = 'Cash on Delivery';
 
       const payload = {
@@ -71,42 +72,23 @@ export class CheckoutComponent {
         status: 'COD',
       };
 
-      this.postOrderToSheet(payload).then((response: any) => {
-        if (response?.orderId) localStorage.setItem('last_order_id', response.orderId);
-        if (response?.invoiceLink) localStorage.setItem('last_invoice_link', response.invoiceLink);
+  this.postOrderToSheet(payload).then((response: any) => {
 
-        // Save customer
-        localStorage.setItem(
-          'last_customer',
-          JSON.stringify({ name, phone, address, city, pincode })
-        );
+    // ⏳ keep spinner visible for 2 secs
+    setTimeout(() => {
+      this.loading = false;
 
-        // 🔥 Save items WITH qty
-        localStorage.setItem(
-          'last_items',
-          JSON.stringify(
-            this.cart.cartItems().map((i) => ({
-              name: i.name,
-              price: i.price,
-              qty: i.qty,
-            }))
-          )
-        );
+      this.saveOrderLocally(response.orderId, name, phone, address, city, pincode);
+      this.showToast('Order Placed Successfully', 'success');
+      this.showSuccessModal = true;
+    }, 10000);
 
-        // Save amount
-        localStorage.setItem('last_amount', this.cart.totalPrice().toString());
-
-        // Clear cart
-        this.cart.clearCart();
-
-        this.showToast('Order Placed Successfully', 'success');
-        this.showSuccessModal = true;
-      });
+  });
 
       return;
     }
 
-    // ONLINE PAYMENT (Razorpay)
+    // ---------------------- ONLINE PAYMENT (RAZORPAY) ----------------------
     const options = {
       key: 'rzp_test_RgtjTiFyCjKHbi',
       amount: this.cart.totalPrice() * 100,
@@ -131,41 +113,31 @@ export class CheckoutComponent {
           status: 'Paid',
         };
 
-        this.postOrderToSheet(payload).then((response: any) => {
-          this.ngZone.run(() => {
-            // Save order
-            if (response?.orderId) localStorage.setItem('last_order_id', response.orderId);
-            if (response?.invoiceLink)
-              localStorage.setItem('last_invoice_link', response.invoiceLink);
+        this.loading = true;
 
-            // Save customer details
-            localStorage.setItem(
-              'last_customer',
-              JSON.stringify({ name, phone, address, city, pincode })
-            );
+this.postOrderToSheet(payload).then((response: any) => {
+  this.ngZone.run(() => {
 
-            // 🔥 Save items WITH qty
-            localStorage.setItem(
-              'last_items',
-              JSON.stringify(
-                this.cart.cartItems().map((i) => ({
-                  name: i.name,
-                  price: i.price,
-                  qty: i.qty,
-                }))
-              )
-            );
+    setTimeout(() => {
+      this.loading = false;
 
-            // Save total
-            localStorage.setItem('last_amount', this.cart.totalPrice().toString());
+      this.saveOrderLocally(
+        response.orderId,
+        name,
+        phone,
+        address,
+        city,
+        pincode
+      );
 
-            // Clear cart
-            this.cart.clearCart();
+      this.showToast('Payment Successful', 'success');
+      this.showSuccessModal = true;
 
-            this.showToast('Payment Successful', 'success');
-            this.showSuccessModal = true;
-          });
-        });
+    }, 10000); // same delay
+
+  });
+});
+
       },
 
       modal: {
@@ -183,22 +155,49 @@ export class CheckoutComponent {
     rzp.open();
   }
 
+  // ------------------------- SAVE ORDER LOCALLY -------------------------
+  saveOrderLocally(orderId: string, name: string, phone: string, address: string, city: string, pincode: string) {
+    localStorage.setItem('last_order_id', orderId);
+
+    localStorage.setItem(
+      'last_customer',
+      JSON.stringify({ name, phone, address, city, pincode })
+    );
+
+    localStorage.setItem(
+      'last_items',
+      JSON.stringify(
+        this.cart.cartItems().map((i) => ({
+          name: i.name,
+          price: i.price,
+          qty: i.qty,
+        }))
+      )
+    );
+
+    localStorage.setItem('last_amount', this.cart.totalPrice().toString());
+
+    this.cart.clearCart();
+  }
+
+  // ------------------------- FIXED API CALL (instant) -------------------------
   private async postOrderToSheet(payload: any) {
     const APPS_SCRIPT_URL =
       'https://script.google.com/macros/s/AKfycbzg9U-pxVw6nZdRYG-8HCMQXBpuSIoYClrr9P3OdlS-HoUORWYaRy-zlglkHXyT4J0xAg/exec';
 
-    await fetch(APPS_SCRIPT_URL, {
+    // 🚀 DO NOT WAIT for Google Script
+    fetch(APPS_SCRIPT_URL, {
       method: 'POST',
-      mode: 'no-cors', // IMPORTANT
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
 
-    // Browser cannot read the real JSON because of CORS
+    // Return fake response immediately
     return {
       success: true,
       orderId: 'TEMP-' + Date.now(),
-      invoiceLink: '', // browser cannot get Drive link
+      invoiceLink: '',
     };
   }
 

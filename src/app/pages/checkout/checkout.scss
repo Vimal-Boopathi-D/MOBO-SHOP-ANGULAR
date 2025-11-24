@@ -649,12 +649,134 @@ input:checked + .content::before {
   }
 }
 
-/* Animation */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
 }
 
+//* ULTRA-PREMIUM LOADING OVERLAY */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px) saturate(180%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* FUTURISTIC GEMINI SPINNER */
+/* Premium blurred overlay */
+/* ★ ULTRA PREMIUM GLASS OVERLAY */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+
+  animation: fadeIn 0.35s ease-out;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* ★ WRAPPER FOR CENTERING + EFFECTS */
+.loading-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 190px;
+  height: 190px;
+
+  /* Smooth floating animation */
+  animation: floatUpDown 2.4s ease-in-out infinite;
+}
+
+/* Floating keyframes */
+@keyframes floatUpDown {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+
+/* ★ GLOW AROUND LOADER */
+.loading-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 122, 26, 0.35),
+    rgba(106, 92, 255, 0.25),
+    rgba(45, 212, 191, 0.20),
+    transparent
+  );
+  filter: blur(35px);
+  z-index: -1;
+}
+
+
+/* ★ Spotlight gradient behind loader */
+.loading-wrapper::after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #ff7a1a,
+    #ff3d54,
+    #6a5cff,
+    #2dd4bf,
+    #ff7a1a
+  );
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: rotateGlow 6s linear infinite;
+  z-index: -2;
+}
+
+/* Slow gradient rotation */
+@keyframes rotateGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* ★ Make Lottie slightly scale-in */
+app-lottie-section {
+  animation: scaleIn 0.45s ease-out;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.75); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
 
 /* ================================
    📱 MOBILE RESPONSIVE STYLES

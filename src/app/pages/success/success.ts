@@ -56,9 +56,20 @@ export class SuccessComponent implements AfterViewInit {
   doc.setFont("helvetica", "normal");
 
     // ------------------ WATERMARK "PAID" ------------------
-doc.setFontSize(80);
-doc.setTextColor(230, 230, 230);  // very light grey
-doc.text("PAID", 70, 280, { angle: 30 });
+// ------------------ CONDITIONAL WATERMARK ------------------
+if (this.paymentMethod.toLowerCase().includes("online")) {
+  // ONLINE PAYMENT → Show PAID watermark
+  doc.setFontSize(80);
+  doc.setTextColor(230, 230, 230);
+  doc.text("PAID",70, 230, { angle: 30 });
+
+} else {
+  // COD PAYMENT → Show COD watermark
+  doc.setFontSize(70);
+  doc.setTextColor(230, 230, 230);
+  doc.text("COD", 70, 230, { angle: 30 });
+}
+
 
   // ------------------ LOGO ------------------
 const logoUrl = "../../../assets/images/mobo-logo.png";  
@@ -160,12 +171,31 @@ const logoBase64 = await this.loadImageAsBase64(logoUrl);
   const gstEndY = (doc as any).lastAutoTable.finalY + 15;
 
 
-  // ------------------ SIGNATURE BOX ------------------
-  doc.setDrawColor(150);
-  doc.rect(140, gstEndY, 50, 25);
+// ------------------ SIGNATURE BOX WITH IMAGE ------------------
+try {
+  const signatureUrl = "../../../assets/images/signature.jpeg";
+  const signatureBase64 = await this.loadImageAsBase64(signatureUrl);
 
+  doc.setDrawColor(150);
+  doc.rect(140, gstEndY, 50, 25); // signature box outline
+
+  // Insert the signature image inside the box
+  doc.addImage(signatureBase64, "PNG", 142, gstEndY + 2, 46, 21);
+
+  // Title below the signature
   doc.setFontSize(12);
   doc.text("Authorized Signature", 165, gstEndY + 35, { align: "center" });
+
+} catch (error) {
+  console.error("❌ Signature image failed to load:", error);
+
+  // fallback text if image not loaded
+  doc.setFontSize(12);
+  doc.text("Signature Missing", 165, gstEndY + 15, { align: "center" });
+
+  doc.text("Authorized Signature", 165, gstEndY + 35, { align: "center" });
+}
+
 
   // ------------------ FOOTER ------------------
   doc.setFontSize(11);

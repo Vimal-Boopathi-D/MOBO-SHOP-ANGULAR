@@ -61,15 +61,18 @@
           </div>
         </div>
 
-        <div class="qty-box">
-          <button (click)="cart.updateQty(i.name, i.qty - 1)" [disabled]="i.qty <= 1">-</button>
-          <span>{{ i.qty }}</span>
-          <button (click)="cart.updateQty(i.name, i.qty + 1)">+</button>
-        </div>
+<div class="bottom-actions">
+  <div class="qty-box">
+    <button (click)="cart.updateQty(i.name, i.qty - 1)" [disabled]="i.qty <= 1">-</button>
+    <span>{{ i.qty }}</span>
+    <button (click)="cart.updateQty(i.name, i.qty + 1)">+</button>
+  </div>
 
-        <button class="remove" (click)="cart.removeItem(i.name)">
-          <i class="fa-solid fa-trash"></i>
-        </button>
+  <button class="remove" (click)="cart.removeItem(i.name)">
+    <i class="fa-solid fa-trash"></i>
+  </button>
+</div>
+
       </div>
 
     </div>
