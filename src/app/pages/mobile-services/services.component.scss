@@ -191,7 +191,7 @@
     display: flex;
     gap: 1rem; /* reduce space */
     width: max-content;
-    animation: smoothLoop 70s linear infinite;
+    animation: smoothLoop 50s linear infinite;
   }
 
   .process-track:hover .process-strip {
@@ -325,5 +325,55 @@
 
   .service-card .card-img img {
     height: 150px !important;
+  }
+}
+/* EXTRA MOBILE OPTIMIZATION — SUPER SMALL STEP BOXES */
+/* FINAL MOBILE FIX for step-box */
+@media (max-width: 480px) {
+  .process-ultra .process-strip {
+    white-space: normal !important;  /* <<< THIS ALLOWS TEXT TO WRAP */
+  }
+
+  .process-ultra .step-box {
+    min-width: 150px !important;    /* narrower */
+    max-width: 95px !important;
+    height: 130px !important;      /* taller */
+    padding: 0.7rem 0.5rem !important;
+  }
+
+  .process-ultra .step-num {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .process-ultra .step-box h3 {
+    font-size: 0.75rem !important;
+    line-height: 1.1 !important;
+    margin: 0.3rem 0 !important;
+    white-space: normal !important; /* wrap title */
+  }
+
+  .process-ultra .step-box p {
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
+    white-space: normal !important; /* wrap paragraph */
+  }
+}
+
+
+/* ULTRA SMALL DEVICES (below 360px) */
+@media (max-width: 360px) {
+  .process-ultra .step-box {
+    min-width: 95px !important;
+    padding: 0.5rem 0.45rem !important;
+  }
+
+  .process-ultra .step-box h3 {
+    font-size: 0.75rem !important;
+  }
+
+  .process-ultra .step-box p {
+    font-size: 0.65rem !important;
   }
 }
