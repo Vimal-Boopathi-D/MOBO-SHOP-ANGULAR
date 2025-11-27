@@ -1,9 +1,21 @@
 <div class="service-card">
-  <div class="card-img">
-    <img [src]="img" alt="{{name}}">
-  </div>
-  <div class="card-content">
-    <h3>{{ name }}</h3>
-    <p>{{ description }}</p>
+  <div class="service-inner">
+
+    <!-- FRONT SIDE -->
+    <div class="service-front">
+      <div class="card-img">
+        <img [src]="img" alt="service image" />
+      </div>
+
+      <h3>{{ name }}</h3>
+    </div>
+
+    <!-- BACK SIDE -->
+    <div class="service-back">
+      <h3 class="info-title">More Info</h3>
+      <h4>{{ name }}</h4>
+      <p>{{ backText }}</p>
+    </div>
+
   </div>
 </div>

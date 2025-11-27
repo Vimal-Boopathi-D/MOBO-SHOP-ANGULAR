@@ -1,16 +1,14 @@
-// service-card.component.ts
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-service-card',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './service-card.html',
   styleUrls: ['./service-card.scss']
 })
-export class ServiceCardComponent {
+export class ServiceCard {
+
   @Input() img!: string;
   @Input() name!: string;
-  @Input() description!: string;
+  @Input() backText: string = "More details about this service.";
 }

@@ -13,95 +13,126 @@
 
 
   <!-- SERVICE CARDS GRID -->
-  <div class="services-grid">
-    <app-service-card
-      *ngFor="let service of services; let i = index"
-      [img]="service.img"
-      [name]="service.name"
-      [description]="service.description"
-      appScrollAnimation
-      [animation]="i % 2 === 0 ? 'left' : 'right'"
-      class="scroll-animate"
-    ></app-service-card>
-  </div>
-</section>
+<div class="services-grid">
+  <app-service-card
+    *ngFor="let service of services; let i = index"
+    [img]="service.img"
+    [name]="service.name"
+    [backText]="service.backText"
+    appScrollAnimation
+    [animation]="i % 2 === 0 ? 'left' : 'right'"
+    class="scroll-animate"
+  ></app-service-card>
+</div>
 
 
 <!-- HOW WE WORK -->
-<!-- HOW WE WORK -->
-<section class="process">
+<section class="process-ultra">
   <h2>How Our Repair Process Works</h2>
 
-  <div class="steps">
+  <div class="process-track">
+    <div class="process-strip">
 
-    <!-- STEP 1 -->
-    <div class="step-card">
-      <div class="step-inner">
-        <!-- FRONT -->
-        <div class="step-front">
-          <span>1</span>
-          <h4>Diagnosis</h4>
-          <p>We perform a complete device check to find the exact issue.</p>
-        </div>
-
-        <!-- BACK -->
-        <div class="step-back">
-          <h4>More Info</h4>
-          <p>Our experts inspect hardware & software components for accurate diagnosis.</p>
-        </div>
+      <div class="step-box">
+        <div class="step-num">1</div>
+        <h3>Device Check</h3>
+        <p>We perform a quick but complete inspection to identify the root cause.</p>
       </div>
-    </div>
 
-    <!-- STEP 2 -->
-    <div class="step-card">
-      <div class="step-inner">
-        <div class="step-front">
-          <span>2</span>
-          <h4>Quotation</h4>
-          <p>We provide a transparent price estimate before starting the repair.</p>
-        </div>
-
-        <div class="step-back">
-          <h4>More Info</h4>
-          <p>You get a clear cost breakdown—no hidden charges.</p>
-        </div>
+      <div class="step-box">
+        <div class="step-num">2</div>
+        <h3>Deep Diagnosis</h3>
+        <p>Hardware and software components are tested with precision tools.</p>
       </div>
-    </div>
 
-    <!-- STEP 3 -->
-    <div class="step-card">
-      <div class="step-inner">
-        <div class="step-front">
-          <span>3</span>
-          <h4>Repair</h4>
-          <p>Certified technicians repair your mobile using premium components.</p>
-        </div>
-
-        <div class="step-back">
-          <h4>More Info</h4>
-          <p>Repairs are completed using OEM-grade parts for durability.</p>
-        </div>
+      <div class="step-box">
+        <div class="step-num">3</div>
+        <h3>Quotation</h3>
+        <p>A transparent cost estimate is provided before repairs start.</p>
       </div>
-    </div>
 
-    <!-- STEP 4 -->
-    <div class="step-card">
-      <div class="step-inner">
-        <div class="step-front">
-          <span>4</span>
-          <h4>Quality Test</h4>
-          <p>Every device undergoes a 21-point quality check before delivery.</p>
-        </div>
-
-        <div class="step-back">
-          <h4>More Info</h4>
-          <p>Final tests include touch response, battery health & sensor accuracy.</p>
-        </div>
+      <div class="step-box">
+        <div class="step-num">4</div>
+        <h3>Repair Process</h3>
+        <p>Technicians use premium OEM-grade parts for reliable performance.</p>
       </div>
-    </div>
 
+      <div class="step-box">
+        <div class="step-num">5</div>
+        <h3>Cleaning</h3>
+        <p>Dust, moisture and residue are removed for better device life.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">6</div>
+        <h3>Quality Check</h3>
+        <p>21-point test including sensors, battery, mic, camera and touch.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">7</div>
+        <h3>Packaging</h3>
+        <p>Your device is cleaned, sanitized and safely sealed for delivery.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">8</div>
+        <h3>Delivery</h3>
+        <p>Fast doorstep or in-store delivery with full customer satisfaction.</p>
+      </div>
+
+           <div class="step-box">
+        <div class="step-num">1</div>
+        <h3>Device Check</h3>
+        <p>We perform a quick but complete inspection to identify the root cause.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">2</div>
+        <h3>Deep Diagnosis</h3>
+        <p>Hardware and software components are tested with precision tools.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">3</div>
+        <h3>Quotation</h3>
+        <p>A transparent cost estimate is provided before repairs start.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">4</div>
+        <h3>Repair Process</h3>
+        <p>Technicians use premium OEM-grade parts for reliable performance.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">5</div>
+        <h3>Cleaning</h3>
+        <p>Dust, moisture and residue are removed for better device life.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">6</div>
+        <h3>Quality Check</h3>
+        <p>21-point test including sensors, battery, mic, camera and touch.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">7</div>
+        <h3>Packaging</h3>
+        <p>Your device is cleaned, sanitized and safely sealed for delivery.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">8</div>
+        <h3>Delivery</h3>
+        <p>Fast doorstep or in-store delivery with full customer satisfaction.</p>
+      </div>
+
+    </div>
   </div>
 </section>
+
 
 
 <!-- WHY CHOOSE US -->
