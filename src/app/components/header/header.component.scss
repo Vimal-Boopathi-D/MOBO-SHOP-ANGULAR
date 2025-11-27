@@ -260,3 +260,24 @@
 .dark-nav .nav-links li a {
   color: #fff !important;
 }
+
+/* UNIVERSAL WHITE DROPDOWN (ALL PAGES) */
+.header-nav .nav-links .dropdown-menu {
+  background: rgba(255, 255, 255, 0.95) !important; /* clean white */
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+}
+
+.header-nav .nav-links .dropdown-menu li a {
+  color: #333 !important;
+  display: block;
+  padding: 0.7rem 1rem;
+}
+
+.header-nav .nav-links .dropdown-menu li a:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+

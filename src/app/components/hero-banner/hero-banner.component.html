@@ -1,0 +1,27 @@
+<div class="hero-banner">
+  <div class="banner-bg">
+
+    <!-- ANGULAR 17+ CONTROL FLOW -->
+    @if (video) {
+      <video 
+        class="banner-video" 
+        autoplay 
+        muted 
+        loop 
+        playsinline>
+        <source [src]="video" type="video/mp4" />
+      </video>
+    } @else {
+      <img [src]="image" [alt]="title" />
+    }
+
+    <div class="overlay"></div>
+  </div>
+
+  <div class="banner-content">
+    <div class="glass-box">
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
+    </div>
+  </div>
+</div>

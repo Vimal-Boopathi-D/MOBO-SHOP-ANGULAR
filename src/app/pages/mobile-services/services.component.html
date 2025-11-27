@@ -1,13 +1,18 @@
+<!-- HERO SECTION -->
 <app-hero-banner
-  image="assets/images/service.jpg"
-  title="Expert Mobile Repair Services"
-  description="Fast and affordable phone repairs by certified professionals."
+  [video]="'assets/videos/mobile_service_video.mp4'"
+  title="Expert Mobile Services"
+  description="Premium phone repair solutions with high-quality parts."
 ></app-hero-banner>
 
-<section class="services-page">
-  <h2>Our Mobile Repair Services</h2>
-  <p class="subtitle">Professional repair solutions for all your devices</p>
 
+<section class="services-page">
+
+<h2 class="page-title">Our Mobile Repair Services</h2>
+<p class="subtitle">Get reliable and affordable repair services handled by certified technicians using premium parts.</p>
+
+
+  <!-- SERVICE CARDS GRID -->
   <div class="services-grid">
     <app-service-card
       *ngFor="let service of services; let i = index"
@@ -19,4 +24,124 @@
       class="scroll-animate"
     ></app-service-card>
   </div>
+</section>
+
+
+<!-- HOW WE WORK -->
+<!-- HOW WE WORK -->
+<section class="process">
+  <h2>How Our Repair Process Works</h2>
+
+  <div class="steps">
+
+    <!-- STEP 1 -->
+    <div class="step-card">
+      <div class="step-inner">
+        <!-- FRONT -->
+        <div class="step-front">
+          <span>1</span>
+          <h4>Diagnosis</h4>
+          <p>We perform a complete device check to find the exact issue.</p>
+        </div>
+
+        <!-- BACK -->
+        <div class="step-back">
+          <h4>More Info</h4>
+          <p>Our experts inspect hardware & software components for accurate diagnosis.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-card">
+      <div class="step-inner">
+        <div class="step-front">
+          <span>2</span>
+          <h4>Quotation</h4>
+          <p>We provide a transparent price estimate before starting the repair.</p>
+        </div>
+
+        <div class="step-back">
+          <h4>More Info</h4>
+          <p>You get a clear cost breakdown—no hidden charges.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-card">
+      <div class="step-inner">
+        <div class="step-front">
+          <span>3</span>
+          <h4>Repair</h4>
+          <p>Certified technicians repair your mobile using premium components.</p>
+        </div>
+
+        <div class="step-back">
+          <h4>More Info</h4>
+          <p>Repairs are completed using OEM-grade parts for durability.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-card">
+      <div class="step-inner">
+        <div class="step-front">
+          <span>4</span>
+          <h4>Quality Test</h4>
+          <p>Every device undergoes a 21-point quality check before delivery.</p>
+        </div>
+
+        <div class="step-back">
+          <h4>More Info</h4>
+          <p>Final tests include touch response, battery health & sensor accuracy.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- WHY CHOOSE US -->
+<section class="why-us">
+  <h2>Why Choose Mobo Shop?</h2>
+
+  <div class="why-grid">
+    <div class="why-box">
+      <i class="fa-solid fa-tools"></i>
+      <h3>Certified Technicians</h3>
+      <p>All repairs are handled by experts trained in advanced chip-level diagnostics.</p>
+    </div>
+
+    <div class="why-box">
+      <i class="fa-solid fa-shield-heart"></i>
+      <h3>Genuine Spare Parts</h3>
+      <p>We use only original or high-quality OEM parts for maximum durability.</p>
+    </div>
+
+    <div class="why-box">
+      <i class="fa-solid fa-clock"></i>
+      <h3>Fast Same-Day Delivery</h3>
+      <p>Most repairs including screen and battery replacements done in under 1 hour.</p>
+    </div>
+
+    <div class="why-box">
+      <i class="fa-solid fa-credit-card"></i>
+      <h3>Transparent Pricing</h3>
+      <p>No hidden charges. You pay only for the service you choose.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Need Quick Mobile Repair?</h2>
+  <p>Book your repair now and get same-day service.</p>
+
+  <button routerLink="/contact" class="cta-btn">
+    <i class="fa-solid fa-phone"></i> Contact Us
+  </button>
 </section>

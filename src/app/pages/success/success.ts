@@ -149,8 +149,7 @@ const logoBase64 = await this.loadImageAsBase64(logoUrl);
   const itemEndY = (doc as any).lastAutoTable.finalY + 10;
 
   // ------------------ GST TABLE ------------------
-  const gst = Math.round(this.amount * 0.09); // 9% CGST + 9% SGST
-  const totalWithGST = this.amount + gst + gst;
+  const totalWithGST = this.amount;
 
   autoTable(doc, {
     startY: itemEndY,
@@ -162,8 +161,6 @@ const logoBase64 = await this.loadImageAsBase64(logoUrl);
     },
     body: [
       ["Subtotal", `Rs.${this.amount}`],
-      ["CGST (9%)", `Rs.${gst}`],
-      ["SGST (9%)", `Rs.${gst}`],
       ["Grand Total", `Rs.${totalWithGST}`],
     ],
   });

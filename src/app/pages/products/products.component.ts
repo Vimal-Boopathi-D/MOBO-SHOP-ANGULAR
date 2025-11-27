@@ -1,7 +1,7 @@
 import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollAnimationDirective } from '../../directives/scroll-animation.directive';
-import { HeroBannerComponent } from '../../components/hero-banner/hero-banner';
+import { HeroBannerComponent } from '../../components/hero-banner/hero-banner.component';
 import { ProductCardComponent } from '../../components/product-card/product-card';
 import { PRODUCTS_DATA } from '../../products.data';
 import { CartService } from '../../services/cart.service';
